@@ -8,7 +8,7 @@ export default {
         input: "#FCFCFD",
         person: "#BC8FF4",
         mainbackground: "#1B1C1E",
-        primaryColor: "#FF385C",
+        primaryColor: "#FF5C5E",
       },
       fontFamily: {
         boldm: ["Dm sans"],
