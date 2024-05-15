@@ -30,7 +30,6 @@ const Form = () => {
           },
           body: JSON.stringify({ email: data.email, password: data.password }),
         });
-
         const object = result.json();
         console.log(object);
       } catch (err) {
@@ -45,11 +44,11 @@ const Form = () => {
       initial={{ scale: 0.8 }}
       animate={{ scale: 1.0 }}
       transition={{ ease: "easeOut" }}
-      className="mt-16 relative z-50 flex flex-col py-7 bg-formbackground bg-opacity-40 mx-auto w-[566px] h-[540px] rounded-lg "
+      className="mt-16 backdrop-blur-md relative z-50 flex flex-col py-7 bg-formbackground bg-opacity-40 mx-auto w-[566px] h-[540px] rounded-lg "
     >
       {" "}
       <div className="mx-auto flex text-[34px]">
-        <p className="font-semibold">Sign in to Uniguide</p>
+        <p className="font-semibold">Sign up to Uniguide</p>
       </div>
       <form
         className="overflow-y-none  px-9 py-4 flex flex-col"
@@ -84,14 +83,14 @@ const Form = () => {
         </div>
         <motion.button
           whileTap={{ scale: 0.9 }}
-          className="bg-primaryColor  bg-opacity-35 self-center hover:cursor-pointer w-28 h-14 rounded-full"
+          className="border-primary border-2     self-center hover:cursor-pointer w-28 h-14 rounded-full"
           type="submit"
         >
-          Sign in
+          Sign up
         </motion.button>
         <div className="flex mt-4 justify-center">
           <p>create a new account</p>
-          <p className="text-primaryColor  hover:cursor-pointer ml-3 hover:underline">
+          <p className="text-secondary  hover:cursor-pointer ml-3 hover:underline">
             sign up
           </p>
         </div>

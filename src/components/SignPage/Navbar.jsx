@@ -1,23 +1,23 @@
-import Hamburger from "../../assets/svgs/hamburger";
 import Logo from "../../assets/svgs/logo";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
-  const navigate = useNavigate();
+// eslint-disable-next-line react/prop-types
+const Navbar = ({ children }) => {
   return (
     <div className="flex py-2 px-20 justify-between w-full h-14 ">
-      <div onClick={() => navigate("/")} className="flex h-9">
-        <Logo />
-      </div>
-      <div className="flex py-2  justify-center items-center gap-x-5">
-        <input
-          placeholder="search universities"
-          className="bg-formbackground border-none my-0 h-11 outline-none bg-opacity-20 rounded-full px-5 w-44 "
-          type="text"
-        />
-        <p className="text-slate-400">FAQ</p>
-        <p className="text-slate-400">features</p>
-        <Hamburger />
+      <Link to={"/"}>
+        <div className="flex h-14 w-32">
+          <Logo />
+        </div>
+      </Link>
+      <div className="flex py-2 {} justify-center items-center gap-x-5">
+        <p className="cursor-pointer hover:text-secondary transition-colors duration-500 text-slate-400">
+          FAQ
+        </p>
+        <p className="cursor-pointer text-slate-400 hover:text-secondary transition-colors">
+          features
+        </p>
+        {children}
       </div>
     </div>
   );

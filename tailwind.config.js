@@ -1,3 +1,4 @@
+import daisyui from "daisyui";
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -8,12 +9,13 @@ export default {
         input: "#FCFCFD",
         person: "#BC8FF4",
         mainbackground: "#1B1C1E",
-        primaryColor: "#FF5C5E",
+        primary: "#FFDEF2",
+        secondary: "#FF5C5E",
       },
       fontFamily: {
         boldm: ["Dm sans"],
       },
     },
   },
-  plugins: [],
+  plugins: [daisyui],
 };
