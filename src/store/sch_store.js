@@ -8,7 +8,9 @@ const useUniversities = create((set) => {
     setSchools: async () => {
       set({ isLoading: true });
       try {
-        const response = await fetch("http://localhost:5000/universities");
+        const response = await fetch(
+          "https://express-test-jjoe.onrender.com/universities"
+        );
         const data = await response.json();
         set({ schools: [...data] });
         set({ isLoading: false });
