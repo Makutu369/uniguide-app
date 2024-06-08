@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className="bg-mainbackground font-boldm text-white w-full h-screen overflow-hidden flex-col">
       <Navbar>
-        <SignButton value={"sign up"} route={"Login"} />
+        <SignButton value={"sign up"} route={"login"} />
       </Navbar>
       <div className="flex relative  px-[80px] py-12 h-full">
         <div className=" pt-7 relative z-50 flex flex-col  max-w-[700px]">
