@@ -1,39 +1,39 @@
 import { motion } from "framer-motion";
-import { z } from "zod";
+import { schema } from "../../utils/validate";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 
-const schema = z.object({
-  email: z
-    .string()
-    .email("invalid email address")
-    .nonempty("email is required"),
-  password: z
-    .string()
-    .min(8, "password must contain at least 8 characters")
-    .nonempty("password is required"),
-});
 const Form = () => {
+  const [isloading, setIsloading] = useState(false);
   const {
     formState: { errors },
     handleSubmit,
     register,
   } = useForm({ resolver: zodResolver(schema) });
   const onSubmit = (data) => {
-    console.log();
+    setIsloading(true);
     const submitdata = async () => {
       try {
-        const result = await fetch("http://localhost:5000/user/register", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify({ email: data.email, password: data.password }),
-        });
+        const result = await fetch(
+          "https://uniguide-back.onrender.com/user/register",
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify({
+              email: data.email,
+              password: data.password,
+            }),
+          }
+        );
+        setIsloading(false);
         const object = result.json();
         console.log(object);
       } catch (err) {
         console.log(err);
+        setIsloading(false);
       }
     };
 
@@ -63,7 +63,7 @@ const Form = () => {
             {...register("email")}
           />
           {errors.email && (
-            <p className="px-2 font-normal text-sm text-red-600">
+            <p className="px-2 font-normal text-sm text-red-400/75">
               {errors.email.message?.toString()}
             </p>
           )}
@@ -76,17 +76,20 @@ const Form = () => {
             {...register("password")}
           />{" "}
           {errors.password && (
-            <p className="px-2 font-normal text-sm text-red-600">
+            <p className="px-2 font-normal text-sm text-red-400/75">
               {errors.password.message?.toString()}
             </p>
           )}
         </div>
         <motion.button
           whileTap={{ scale: 0.9 }}
-          className="border-primary border-2     self-center hover:cursor-pointer w-28 h-14 rounded-full"
+          className="border-primary border-2 px-4 text-nowrap flex justify-center items-center  self-center hover:cursor-pointer w-32 h-14 rounded-full"
           type="submit"
         >
-          Sign up
+          <span>Sign up</span>{" "}
+          {isloading && (
+            <span className="ml-3 loading loading-spinner loading-lg"></span>
+          )}
         </motion.button>
         <div className="flex mt-4 justify-center">
           <p>create a new account</p>
