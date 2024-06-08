@@ -9,7 +9,7 @@ const useUniversities = create((set) => {
       set({ isLoading: true });
       try {
         const response = await fetch(
-          "https://express-test-jjoe.onrender.com/universities"
+          "https://uniguide-back.onrender.com/universities"
         );
         const data = await response.json();
         set({ schools: [...data] });
