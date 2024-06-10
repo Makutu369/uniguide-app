@@ -1,7 +1,7 @@
 import z from "zod";
 const schema = z.object({
   email: z
-    .string()
+    .string("djkdjdjd")
     .email("invalid email address")
     .nonempty("email is required"),
   password: z
