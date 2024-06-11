@@ -13,20 +13,23 @@ const Verified = () => {
         const response = await fetch(
           `https://uniguide-back.onrender.com/user/verifyEmail?token=${value}`
         );
-        if (response.status(!200)) {
-          setResult("user not verified");
+        if (response.status !== 200) {
+          setResult("invalid request");
           return;
         }
         const data = await response.json();
+
         console.log(data);
+        setResult(data.message);
       } catch (e) {
         console.log("there was an error :", e);
+        setResult("there was an error");
       }
     })();
   }, [value]);
   return (
     <div className="h-screen flex justify-center items-center w-full bg-slate-950 text-2xl font-boldm font-extralight">
-      <span></span>
+      <span>{result}</span>
     </div>
   );
 };
