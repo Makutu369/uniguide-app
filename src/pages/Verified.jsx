@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { json, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Verified = () => {
   const location = useLocation();
