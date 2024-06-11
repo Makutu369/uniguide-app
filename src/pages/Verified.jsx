@@ -7,11 +7,15 @@ const Verified = () => {
   const value = queryparam.get("q");
   useEffect(() => {
     (async () => {
-      const response = await fetch(
-        `https://uniguide-back.onrender.com/verify-email?token=${value}`
-      );
-      const data = await response.json();
-      console.log(data);
+      try {
+        const response = await fetch(
+          `https://uniguide-back.onrender.com/user/verifyEmail?token=${value}`
+        );
+        const data = await response.json();
+        console.log(data);
+      } catch (e) {
+        console.log("there was an error :", e);
+      }
     })();
   }, [value]);
   return (
