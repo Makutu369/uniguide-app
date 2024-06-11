@@ -18,7 +18,7 @@ const Verified = () => {
   }, [value]);
   return (
     <div className="h-screen flex justify-center items-center w-full bg-slate-950 text-2xl font-boldm font-extralight">
-      <span>Verified {JSON.stringify(data)}</span>
+      <span>Verified {data.message}</span>
     </div>
   );
 };
