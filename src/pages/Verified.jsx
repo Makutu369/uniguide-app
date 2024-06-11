@@ -8,7 +8,7 @@ const Verified = () => {
   useEffect(() => {
     (async () => {
       const response = await fetch(
-        `https://uniguide-back.onrender.com/verify-email?q=${value}`
+        `https://uniguide-back.onrender.com/verify-email?token=${value}`
       );
       const data = await response.json();
       console.log(data);
