@@ -1,17 +1,19 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Sign from "./pages/Sign";
-import Home from "./pages/Home";
-import SchoolsPublic from "./pages/SchoolsPublic";
-import Verified from "./pages/Verified";
+import Home from "./pages/Home/Home";
+import SchoolsPublic from "./pages/Schools/SchoolsPublic";
+import Verified from "./pages/Verified/Verified";
+import Sign from "./pages/SignPage/Sign";
+import Details from "./pages/userDetails/Details";
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/login/" element={<Sign />} />
         <Route path="/verified" element={<Verified />} />
         <Route path="/home" element={<Home />} />
         <Route path="/universities/" element={<SchoolsPublic />} />
+        <Route path="/register" element={<Sign />} />
         <Route path="/" element={<Home />} />
+        <Route path="/user-info" element={<Details />} />
       </Routes>
     </BrowserRouter>
   );

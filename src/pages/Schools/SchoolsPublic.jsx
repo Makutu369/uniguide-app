@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import { useUniversities } from "../store/sch_store";
-import Logo from "../assets/svgs/logo";
+import { useUniversities } from "./store/sch_store";
+import Logo from "../../assets/svgs/logo";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import search from "../assets/Search.svg";
+import search from "../../assets/Search.svg";
 
 const SchoolsPublic = () => {
   const schools = useUniversities((state) => state.schools);
@@ -24,7 +24,7 @@ const SchoolsPublic = () => {
             <Logo />
           </motion.div>
         </Link>
-        <div className="flex items-center gap-2 rounded-full input input-bordered">
+        <div className="flex  items-center gap-2 rounded-full input input-bordered">
           <img src={search} alt="" />
           <input
             type="text"
@@ -41,8 +41,8 @@ const SchoolsPublic = () => {
               <li>Region</li>
             </div>
             {isLoading &&
-              skeleton.map((skull) => (
-                <div className="skeleton  h-14  mb-9" key={skull}></div>
+              skeleton.map((data) => (
+                <div className="skeleton  h-14  mb-9" key={data}></div>
               ))}
             {schools.map((data) => (
               <motion.div

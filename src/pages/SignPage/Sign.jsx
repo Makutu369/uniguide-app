@@ -1,6 +1,6 @@
-import Form from "../components/SignPage/Form";
-import Navbar from "../components/SignPage/Navbar";
-import EarthSvg from "../assets/svgs/earthPerson";
+import Form from "../../components/SignPage/Form";
+import Navbar from "../../components/SignPage/Navbar";
+import EarthSvg from "../../assets/svgs/earthPerson";
 const Sign = () => {
   return (
     <div className="overflow-y-auto   font-boldm   text-slate-50 bg-mainbackground w-full h-screen">

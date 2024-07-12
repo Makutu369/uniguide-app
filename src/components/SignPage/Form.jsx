@@ -3,8 +3,10 @@ import { schema } from "../../utils/validate";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
+  const navigate = useNavigate();
   const [isloading, setIsloading] = useState(false);
   const {
     formState: { errors },
@@ -92,10 +94,14 @@ const Form = () => {
           )}
         </motion.button>
         <div className="flex mt-4 justify-center">
-          <p>create a new account</p>
-          <p className="text-secondary  hover:cursor-pointer ml-3 hover:underline">
-            sign up
-          </p>
+          <p className="text-white/40">Already have an account?</p>
+
+          <div
+            onClick={() => navigate("/login")}
+            className="text-secondary  hover:cursor-pointer ml-3 hover:underline"
+          >
+            Login
+          </div>
         </div>
       </form>
     </motion.div>

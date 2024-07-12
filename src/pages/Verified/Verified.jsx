@@ -1,12 +1,14 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import Animation from "./components/animation";
 
 const Verified = () => {
   const location = useLocation();
   const queryparam = new URLSearchParams(location.search);
   const value = queryparam.get("q");
   const [result, setResult] = useState("");
+
   useEffect(() => {
     (async () => {
       try {
@@ -28,8 +30,9 @@ const Verified = () => {
     })();
   }, [value]);
   return (
-    <div className="h-screen flex justify-center items-center w-full bg-slate-950 text-2xl font-boldm font-extralight">
+    <div className="h-screen flex flex-col justify-center items-center w-full  text-2xl font-boldm font-extralight">
       <span>{result}</span>
+      <Animation />
     </div>
   );
 };
