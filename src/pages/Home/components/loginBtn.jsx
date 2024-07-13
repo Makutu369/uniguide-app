@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import eyeView from "../../../assets/eye_view.svg";
+import eyeSlash from "../../../assets/eye_slash.svg";
+
 const LoginBtn = () => {
   const navigate = useNavigate();
   const [type, setType] = useState("password");
@@ -7,6 +10,7 @@ const LoginBtn = () => {
   const changeType = () => {
     type === "password" ? setType("text") : setType("password");
   };
+
   const handleLogin = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -78,7 +82,7 @@ const LoginBtn = () => {
                   </svg>
                   <input
                     type="text"
-                    className="grow rounded-full"
+                    className="grow"
                     placeholder="Email"
                     name="email"
                   />
@@ -100,11 +104,18 @@ const LoginBtn = () => {
                 </svg>
                 <input
                   type={type}
-                  className="grow rounded-full"
+                  className="grow "
                   placeholder="password"
                   name="password"
                 />{" "}
-                <span onClick={changeType}>eye</span>
+                <div className="w-6 h-">
+                  <img
+                    className="grow"
+                    onClick={changeType}
+                    src={type === "password" ? eyeView : eyeSlash}
+                    alt=""
+                  />
+                </div>
               </label>
               <div className="self-center">
                 <button
