@@ -12,10 +12,10 @@ const Home = () => {
         </Navbar>
         <div className="flex relative  px-[80px] py-12 h-full">
           <div className=" pt-7 relative z-50 flex flex-col  max-w-[700px]">
-            <span className="pb-3  text-7xl decoration-pink-400">
+            <span className="pb-3  text-7xl decoration-pink-400 font-extrabold">
               How will you shape your future?{" "}
             </span>
-            <span className="mb-3 text-7xl ">
+            <span className="mb-3 text-7xl font-semibold ">
               Lets navigate your university journey together
             </span>
             <span className="text-lg font-light mb-9 text-white/65">

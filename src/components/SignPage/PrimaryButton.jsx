@@ -5,7 +5,7 @@ const PrimaryButton = ({ input, route }) => {
   return (
     <div
       onClick={() => navigate(`/${route}`, { replace: false })}
-      className="w-52 h-16 btn mt-4  bg-white text-black active:bg-white/45 hover:bg-white rounded-full "
+      className="w-52 h-16 btn mt-4 font-medium text-lg bg-white text-black active:bg-white/45 hover:bg-white rounded-full "
     >
       {input}
     </div>
