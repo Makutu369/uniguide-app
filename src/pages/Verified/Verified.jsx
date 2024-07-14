@@ -32,9 +32,18 @@ const Verified = () => {
     })();
   }, [value]);
   return (
-    <div className="h-screen flex flex-col justify-center items-center w-full  text-[60px] font-boldm font-semibold">
+    <div className="h-screen flex flex-col justify-center items-center w-full  text-[48px] font-boldm font-medium">
       <span>{result}</span>
-      {isloading && <Animation />}
+      {isloading && (
+        <div className="flex flex-col justify-center items-centerborder-2 w-[40%] h-[60%]">
+          <div className="text-nowrap self-center">
+            Verifying your account...
+          </div>
+          <div className="w-[50%] h-60">
+            <Animation />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
