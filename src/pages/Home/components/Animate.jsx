@@ -1,7 +1,7 @@
 import Lottie from "lottie-react";
-import animateData from "../../../assets/loading.json";
+import animateData from "../../../assets/success.json";
 
-const Animation = () => {
+const Animate = () => {
   return (
     <div>
       <Lottie animationData={animateData} />
@@ -9,4 +9,4 @@ const Animation = () => {
   );
 };
 
-export default Animation;
+export default Animate;

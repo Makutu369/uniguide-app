@@ -8,20 +8,22 @@ const Verified = () => {
   const queryparam = new URLSearchParams(location.search);
   const value = queryparam.get("q");
   const [result, setResult] = useState("");
+  const [isloading, setIsloading] = useState(false);
 
   useEffect(() => {
     (async () => {
+      setIsloading(true);
       try {
         const response = await fetch(
           `https://uniguide-back.onrender.com/user/verifyEmail?token=${value}`
         );
         if (response.status !== 200) {
+          setIsloading(false);
           setResult("invalid request");
           return;
         }
         const data = await response.json();
-
-        console.log(data);
+        setIsloading(false);
         setResult(data.message);
       } catch (e) {
         console.log("there was an error :", e);
@@ -30,9 +32,9 @@ const Verified = () => {
     })();
   }, [value]);
   return (
-    <div className="h-screen flex flex-col justify-center items-center w-full  text-2xl font-boldm font-extralight">
+    <div className="h-screen flex flex-col justify-center items-center w-full  text-[60px] font-boldm font-semibold">
       <span>{result}</span>
-      <Animation />
+      {isloading && <Animation />}
     </div>
   );
 };

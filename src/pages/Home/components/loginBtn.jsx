@@ -2,11 +2,15 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import eyeView from "../../../assets/eye_view.svg";
 import eyeSlash from "../../../assets/eye_slash.svg";
+import deletIcon from "../../../assets/delete_icon.svg";
+import Animate from "./Animate";
 
 const LoginBtn = () => {
   const navigate = useNavigate();
   const [type, setType] = useState("password");
   const [isloading, setIsloading] = useState(false);
+  const [issucces, setIssuccess] = useState(false);
+
   const changeType = () => {
     type === "password" ? setType("text") : setType("password");
   };
@@ -20,6 +24,7 @@ const LoginBtn = () => {
 
     try {
       setIsloading(true);
+      setIssuccess(false);
       const response = await fetch(
         "https://uniguide-back.onrender.com/user/sign",
         {
@@ -37,11 +42,13 @@ const LoginBtn = () => {
       console.log(data);
       setIsloading(false);
       if (data.success) {
-        navigate("/user-info"); // Redirect to a different page on success
+        setIssuccess(true);
+        setIssuccess(false); // Redirect to a different page on success
       }
     } catch (error) {
       console.log(error);
       setIsloading(false);
+      setIssuccess(false);
     }
   };
   return (
@@ -58,7 +65,9 @@ const LoginBtn = () => {
             className="absolute top-2 right-2 rounded-full shadow-sm shadow-black/15 active:bg-red-500/40 transition-colors flex justify-center items-center bg-stone-800 w-8 h-8"
             method="dialog"
           >
-            <button className="grow w-full h-full">x</button>
+            <button className="grow w-full h-full p-[6px]">
+              <img src={deletIcon} alt="" className="w- h-full" />
+            </button>
           </form>
           <div className="text-3xl">
             <span>welcome to</span>{" "}
@@ -117,14 +126,19 @@ const LoginBtn = () => {
                   />
                 </div>
               </label>
-              <div className="self-center">
+              <div className="">
                 <button
                   type="submit"
-                  className="btn mt-4 bg-white text-black active:bg-white/45 hover:bg-white rounded-full"
+                  className="btn mt-4 flex justify-center items-center bg-white text-black active:bg-white/45 hover:bg-white rounded-full"
                 >
-                  <span>sign in</span>
+                  <div className="text-lg font-light">sign in</div>
                   {isloading && (
                     <span className="loading loading-ring loading-sm"></span>
+                  )}
+                  {issucces && (
+                    <span className="h-8 w-8">
+                      <Animate />
+                    </span>
                   )}
                 </button>
               </div>
