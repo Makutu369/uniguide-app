@@ -1,9 +1,9 @@
+import { Button } from "@/components/ui/button";
+
 const Dashboard = () => {
   return (
     <main>
-      <div></div>
-      <div></div>
-      <div></div>
+      <Button>hello</Button>
     </main>
   );
 };
