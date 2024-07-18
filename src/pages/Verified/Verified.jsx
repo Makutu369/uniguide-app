@@ -36,10 +36,10 @@ const Verified = () => {
       <span>{result}</span>
       {isloading && (
         <div className="flex flex-col justify-center items-centerborder-2 w-[40%] h-[60%]">
-          <div className="text-nowrap self-center">
+          <div className="text-nowrap  self-center">
             Verifying your account...
           </div>
-          <div className="w-[50%] h-60">
+          <div className="h-24 w-full">
             <Animation />
           </div>
         </div>

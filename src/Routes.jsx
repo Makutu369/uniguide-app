@@ -4,6 +4,7 @@ import SchoolsPublic from "./pages/Schools/SchoolsPublic";
 import Verified from "./pages/Verified/Verified";
 import Sign from "./pages/SignPage/Sign";
 import Details from "./pages/userDetails/Details";
+import Dashboard from "./pages/dashboard/Dashboard";
 const App = () => {
   return (
     <BrowserRouter>
@@ -14,6 +15,7 @@ const App = () => {
         <Route path="/register" element={<Sign />} />
         <Route path="/" element={<Home />} />
         <Route path="/user-info" element={<Details />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );
