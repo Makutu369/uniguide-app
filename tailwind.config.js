@@ -9,7 +9,7 @@ export default {
         formbackground: "#5B5966",
         input: "#FCFCFD",
         person: "#BC8FF4",
-        mainbackground: "#1B1C1E",
+        mainbackground: "#121212",
         primary: "#FFDEF2",
         secondary: "#FF5C5E",
       },

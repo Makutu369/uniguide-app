@@ -1,7 +1,6 @@
 import { courseStore } from "./store/courseStore";
 import { coursesData } from "./lib/trackData";
 import { useForm } from "react-hook-form";
-import { useData } from "./store/userData";
 const Details = () => {
   const { handleSubmit, register } = useForm();
 
@@ -9,23 +8,38 @@ const Details = () => {
   const setCourse = courseStore((state) => state.setCourse);
   const courses = courseStore((state) => state.courses);
 
-  const { getDetails } = useData();
   const handleSelect = (e) => {
     setCourse(e.target.value);
   };
   const onSubmit = (value) => {
     const data = { ...value, select: course };
-    getDetails(data);
     console.log(data);
-    // const postData = async () => {
-    //   try {
-    //     const response = await fetch("url", { method: "POST", body: data });
-    //     const data = await response.json();
-    //     console.log(data);
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // };
+    const postData = async () => {
+      try {
+        const response = await fetch(
+          "http://localhost:5000/user/submit-details",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              firstName: data.firstName,
+              lastName: data.lastName,
+              highSchool: data.highSchool,
+              grade: data.grade,
+              highCourse: data.courses,
+              Programme: data.select,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const json = await response.json();
+        console.log(json);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    postData();
   };
 
   return (
@@ -51,9 +65,9 @@ const Details = () => {
               <input
                 type="text"
                 className="grow"
-                name="firstname"
+                name="firstName"
                 placeholder="Enter your name"
-                {...register("firstname")}
+                {...register("firstName")}
               />
             </label>{" "}
             <label className="input input-bordered rounded-full flex items-center gap-2">
@@ -61,9 +75,9 @@ const Details = () => {
               <input
                 type="text"
                 className="grow"
-                name="lastname"
+                name="lastName"
                 placeholder="Enter your name"
-                {...register("lastname")}
+                {...register("lastName")}
               />
             </label>{" "}
           </div>
@@ -79,11 +93,12 @@ const Details = () => {
                 className="  grow"
                 placeholder="enter the name of your High School"
                 required
-                {...register("High School")}
+                {...register("highSchool")}
               />
             </label>
             <select
               onChange={handleSelect}
+              name="Programme"
               className="select select-bordered rounded-full w-full "
             >
               <option disabled selected defaultValue={0}>
