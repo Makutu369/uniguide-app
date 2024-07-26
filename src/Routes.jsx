@@ -7,6 +7,7 @@ import Details from "./pages/userDetails/Details";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Findschools from "./pages/mainSchools/page";
 import "@radix-ui/themes/styles.css";
+import TourPage from "./pages/TourPage/TourPage";
 const App = () => {
   return (
     <BrowserRouter>
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/user/info" element={<Details />} />
         <Route path="/user/findschools" element={<Findschools />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/tour" element={ <TourPage/>} />
       </Routes>
     </BrowserRouter>
   );

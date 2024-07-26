@@ -1,0 +1,67 @@
+.tour-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.tour-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('src/assets/tour-assets/globe1.jpeg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  z-index: -1;
+}
+
+.tour-content {
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(10px); /* Optional: Adds blur to the content background */
+  /*background: rgba(255, 255, 255, 0.7); Optional: Adds a semi-transparent background */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.tour-page h1 {
+  padding: 10px;
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  color: #0d3c16; /* Change text color to make it visible over the background */
+}
+.tour-page h2{
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 00;
+  text-align: center;
+  color: #0d3c16; 
+
+  
+}
+.video-link {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.video-link a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #154809;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  
+}
+
+.video-link a:hover {
+  background-color: #2f9857;
+}
