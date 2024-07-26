@@ -6,7 +6,7 @@ import LoginBtn from "./components/loginBtn";
 const Home = () => {
   return (
     <>
-      <div className="bg-mainbackground font-boldm antialiased text-white w-full h-screen overflow-hidden flex-col">
+      <div className=" font-boldm antialiased text-white w-full h-screen overflow-hidden flex-col">
         <Navbar>
           <LoginBtn />
         </Navbar>

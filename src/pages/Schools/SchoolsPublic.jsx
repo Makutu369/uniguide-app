@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useUniversities } from "./store/sch_store";
+import { useUniversities } from "../../../store/sch_store";
 import Logo from "../../assets/svgs/logo";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";

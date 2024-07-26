@@ -21,29 +21,26 @@ const LoginBtn = () => {
     const formEntries = Object.fromEntries(formData.entries());
     const email = formEntries.email;
     const password = formEntries.password;
-
+    const url = "http://localhost:5000";
     try {
       setIsloading(true);
       setIssuccess(false);
-      const response = await fetch(
-        "https://uniguide-back.onrender.com/user/sign",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email,
-            password,
-          }),
-        }
-      );
+      const response = await fetch(`${url}/user/sign`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
       const data = await response.json();
-      console.log(data);
       setIsloading(false);
       if (data.success) {
-        setIssuccess(true);
-        setIssuccess(false); // Redirect to a different page on success
+        const token = response.headers.get("x-auth-token");
+        localStorage.setItem("token", token);
+        navigate("/user/info");
       }
     } catch (error) {
       console.log(error);

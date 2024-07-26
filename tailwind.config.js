@@ -1,5 +1,4 @@
 import daisyui from "daisyui";
-import form from "@tailwindcss/forms";
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -10,6 +9,7 @@ export default {
         input: "#FCFCFD",
         person: "#BC8FF4",
         mainbackground: "#121212",
+        graySecondary: "#1F1F1F",
         primary: "#FFDEF2",
         secondary: "#FF5C5E",
       },
