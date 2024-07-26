@@ -21,7 +21,7 @@ const LoginBtn = () => {
     const formEntries = Object.fromEntries(formData.entries());
     const email = formEntries.email;
     const password = formEntries.password;
-    const url = "http://localhost:5000";
+    const url = "https://uniguide-back.onrender.com";
     try {
       setIsloading(true);
       setIssuccess(false);

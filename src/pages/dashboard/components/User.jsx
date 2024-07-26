@@ -3,7 +3,6 @@ import { useData } from "../store/userData";
 const User = () => {
   const { Details } = useData();
   console.log(Details);
-  const lastName = Details.lastName;
   return (
     <div className="h-11">
       <DropdownMenu.Root>

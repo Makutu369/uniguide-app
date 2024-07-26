@@ -4,7 +4,7 @@ const useCourse = create((set, get) => ({
   courseId: null,
   course: [],
   fetchCourse: async () => {
-    const url = "http://localhost:5000/courses";
+    const url = "https://uniguide-back.onrender.com/courses";
     const response = await fetch(`${url}/${get().courseId}`);
     const data = await response.json();
     set({ course: data });
