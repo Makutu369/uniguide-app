@@ -11,9 +11,6 @@ const Navbar = ({ children }) => {
         </div>
       </Link>
       <div className="flex py-2 {} justify-center items-center gap-x-5">
-        <p className="cursor-pointer hover:text-secondary transition-colors duration-500 text-slate-400">
-          FAQ
-        </p>
         <p className="cursor-pointer text-slate-400 hover:text-secondary transition-colors">
           features
         </p>

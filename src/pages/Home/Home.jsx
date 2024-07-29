@@ -3,12 +3,20 @@ import Navbar from "../../components/SignPage/Navbar";
 import Hero from "../../assets/svgs/hero";
 import PrimaryButton from "../../components/SignPage/PrimaryButton";
 import LoginBtn from "./components/loginBtn";
+import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <>
       <div className="bg-mainbackground font-boldm antialiased text-white w-full h-screen overflow-hidden flex-col">
         <Navbar>
-          <LoginBtn />
+          {" "}
+          <Link
+            to={"/faqs"}
+            className="cursor-pointer hover:text-secondary transition-colors duration-500 text-slate-400"
+          >
+            FAQ
+          </Link>
+          <LoginBtn />{" "}
         </Navbar>
         <div className="flex relative  px-[80px] py-12 h-full">
           <div className=" pt-7 relative z-50 flex flex-col  max-w-[700px]">
