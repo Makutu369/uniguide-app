@@ -1,7 +1,6 @@
 // src/pages/FAQPage/FAQPage.jsx
 
 import { useState, useEffect } from "react";
-import "./FAQPage.css";
 import faqs from "../../assets/faqs.json";
 import Navbar from "../../components/SignPage/Navbar";
 import LoginBtn from "../Home/components/loginBtn";

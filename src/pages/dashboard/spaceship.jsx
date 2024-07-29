@@ -1,4 +1,4 @@
-import spaceshipData from "../../../assets/spaceship.json";
+import spaceshipData from "../../assets/spaceship.json";
 import Lottie from "lottie-react";
 const Spaceship = () => {
   return (

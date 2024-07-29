@@ -1,5 +1,5 @@
 import { Link, ScrollArea, Separator } from "@radix-ui/themes";
-import Spaceship from "../animations/spaceship";
+import Spaceship from "../spaceship";
 const Tracking = () => {
   const isSchool = true;
   return (
