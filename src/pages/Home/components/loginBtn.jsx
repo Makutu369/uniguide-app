@@ -1,10 +1,14 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import eyeView from "../../../assets/eye_view.svg";
 import eyeSlash from "../../../assets/eye_slash.svg";
-import deletIcon from "../../../assets/delete_icon.svg";
+import closeIcon from "../../../assets/close-button.svg";
+import arrow from "../../../assets/arrow-right.svg";
 import Animate from "./Animate";
-
+/**
+ *
+ * @returns a login button with takes in the jwt form the user
+ */
 const LoginBtn = () => {
   const navigate = useNavigate();
   const [type, setType] = useState("password");
@@ -59,11 +63,11 @@ const LoginBtn = () => {
       <dialog id="my_modal_1" className="modal backdrop-blur-md rounded-none ">
         <div className="modal-box h-[70%] relative  flex flex-col items-center justify-center  bg-mainbackground rounded-lg">
           <form
-            className="absolute top-2 right-2 rounded-full shadow-sm shadow-black/15 active:bg-red-500/40 transition-colors flex justify-center items-center bg-stone-800 w-8 h-8"
+            className="absolute top-2 right-2 rounded-full shadow-sm shadow-black/15 active:bg-white/30 transition-colors flex justify-center items-center bg-stone-800 w-8 h-8"
             method="dialog"
           >
             <button className="grow w-full h-full p-[6px]">
-              <img src={deletIcon} alt="" className="w- h-full" />
+              <img src={closeIcon} alt="" className="w- h-full" />
             </button>
           </form>
           <div className="text-3xl">
@@ -140,15 +144,33 @@ const LoginBtn = () => {
                 </button>
               </div>
             </form>
-            <div className="self-center mt-4">
-              <span>dont have an account?</span>{" "}
+            <div className="self-center mt-14 group cursor-pointer text-white/40">
+              <span className="group-hover:text-white/80">
+                dont have an account?
+              </span>{" "}
               <span
-                className="inline cursor-pointer decoration-sky-500 decoration-wavy underline  hover:text-sky-400/95 transition-colors"
+                className="inline cursor-pointer decoration-sky-500  hover:underline transition text-sky-300/70 hover:text-sky-400/95 "
                 onClick={() => navigate("/register")}
               >
                 register
               </span>
             </div>
+
+            <Link
+              to={"/reset-password"}
+              className="text-base group self-center flex gap-4 transition-transform cursor-pointer text-white/40 justify-center items-center"
+            >
+              <span className="group-hover:text-white/70 group-active:text-white">
+                forgot password?
+              </span>{" "}
+              <div className="h-2 w-4 flex  items-center justify-center ">
+                <img
+                  src={arrow}
+                  alt=""
+                  className="opacity-40 group-hover:opacity-80 group-hover:translate-x-5 transition-transform duration-300"
+                />
+              </div>
+            </Link>
           </div>
         </div>
       </dialog>

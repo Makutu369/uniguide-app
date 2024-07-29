@@ -20,7 +20,7 @@ const UniList = () => {
       {universities.map((university) => (
         <div
           key={university._id}
-          className="flex cursor-pointer border-b py-9 justify-between border-white/5 items-center px-5 h-11 hover:bg-[#BCE56C]/20"
+          className=" flex cursor-pointer border-b py-9 justify-between border-white/5 items-center px-5 h-11 hover:bg-white/20 focus:bg-white/15"
           onClick={() => {
             getCourseId(university._id);
             fetchCourse();

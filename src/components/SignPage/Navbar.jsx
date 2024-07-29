@@ -4,11 +4,9 @@ import { Link } from "react-router-dom";
 // eslint-disable-next-line react/prop-types
 const Navbar = ({ children }) => {
   return (
-    <div className="flex py-2 px-20 justify-between w-full h-14 ">
-      <Link to={"/"}>
-        <div className="flex h-14 w-32">
-          <Logo />
-        </div>
+    <div className="flex border-b border-white/15 py-2 px-20 justify-between items-center w-full h-14 ">
+      <Link to={"/"} className="w-32 h-11 flex items-center justify-center">
+        <Logo />
       </Link>
       <div className="flex py-2 {} justify-center items-center gap-x-5">
         <p className="cursor-pointer hover:text-secondary transition-colors duration-500 text-slate-400">

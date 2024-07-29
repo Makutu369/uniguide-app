@@ -2,13 +2,19 @@ import { Progress, ScrollArea } from "@radix-ui/themes";
 import { useCourse } from "../store/courses";
 import { useData } from "../../dashboard/store/userData";
 import { useEffect } from "react";
+import { useSearch } from "../store/searchTerm";
+import Svg from "./svg";
 
 const CourseList = () => {
   const course = useCourse((state) => state.course);
+  const searchTerm = useSearch((state) => state.searchTerm);
   const { getDetails, Details } = useData();
   useEffect(() => {
     getDetails();
   }, [getDetails]);
+  const courseFilter = course.filter((c) =>
+    c.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const percentageColor = (grade, cutoff) => {
     const result =
@@ -29,23 +35,26 @@ const CourseList = () => {
         <span>cutoff</span>
       </div>
       <ScrollArea
-        type="hover"
+        type="always"
         scrollbars="vertical"
         className="w-full h-screen"
       >
-        {course.map((course) => (
+        {courseFilter.map((course) => (
           <div
             key={course._id}
             className="w-full px-6 h-14 gap-y-9 border-b border-white/5 flex items-center justify-between"
           >
-            <span className="w-[40%] border-r border-white/5">
-              {course.name}
-            </span>
+            <div className="w-[40%] border-r flex gap-x-3 cursor-pointer items-center border-white/5 ">
+              <>
+                <Svg courseId={course._id} />
+              </>
+              <span>{course.name}</span>
+            </div>
             <span className="w-28">
               <Progress
                 variant="soft"
                 color={percentageColor(Number(Details.grade), course.cutoff)}
-                value={(Number(Details.grade) / course.cutoff) * 80}
+                value={24}
               />
             </span>
             <span>{course.cutoff}</span>
