@@ -46,7 +46,7 @@ const Form = () => {
       initial={{ scale: 0.8 }}
       animate={{ scale: 1.0 }}
       transition={{ ease: "easeOut" }}
-      className="mt-16 backdrop-blur-md relative z-50 flex flex-col py-7 bg-formbackground bg-opacity-40 mx-auto w-[566px] h-[540px] rounded-lg "
+      className="mt-16 backdrop-blur-md relative z-50 flex flex-col py-7 bg-graySecondary bg-opacity-40 mx-auto w-[566px] h-[540px] rounded-lg "
     >
       {" "}
       <div className="mx-auto flex text-[34px]">

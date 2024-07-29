@@ -7,12 +7,12 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <>
-      <div className="bg-mainbackground font-boldm antialiased text-white w-full h-screen overflow-hidden flex-col">
+      <div className=" font-boldm antialiased text-white w-full h-screen overflow-hidden flex-col">
         <Navbar>
           {" "}
           <Link
             to={"/faqs"}
-            className="cursor-pointer hover:text-secondary transition-colors duration-500 text-slate-400"
+            className="cursor-pointer border-r border-white/5 pr-5 hover:text-secondary transition-colors duration-500 text-slate-400"
           >
             FAQ
           </Link>

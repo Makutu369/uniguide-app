@@ -3,11 +3,14 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .tour-page::before {
   content: "";
   position: absolute;
+  background-color: black;
+  opacity: 40;
   top: 0;
   left: 0;
   width: 100%;

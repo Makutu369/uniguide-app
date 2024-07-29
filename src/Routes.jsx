@@ -6,6 +6,7 @@ import Sign from "./pages/SignPage/Sign";
 import Details from "./pages/userDetails/Details";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Findschools from "./pages/mainSchools/page";
+import Reset from "./pages/resetPassword/Reset";
 import "@radix-ui/themes/styles.css";
 import TourPage from "./pages/TourPage/TourPage";
 import FAQPage from "./pages/FAQPage/FAQPage";
@@ -21,8 +22,9 @@ const App = () => {
         <Route path="/user/info" element={<Details />} />
         <Route path="/user/findschools" element={<Findschools />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/tour" element={ <TourPage/>} />
-        <Route path="/faqs" element={<FAQPage/>} />
+        <Route path="/tour" element={<TourPage />} />
+        <Route path="/faqs" element={<FAQPage />} />
+        <Route path="/reset-password" element={<Reset />} />
       </Routes>
     </BrowserRouter>
   );

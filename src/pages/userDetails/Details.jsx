@@ -1,9 +1,11 @@
 import { courseStore } from "./store/courseStore";
 import { coursesData } from "./lib/trackData";
 import { useForm } from "react-hook-form";
+import Logo from "../../assets/svgs/logo";
+import { useNavigate } from "react-router-dom";
 const Details = () => {
   const { handleSubmit, register } = useForm();
-
+  const navigate = useNavigate();
   const course = courseStore((state) => state.course);
   const setCourse = courseStore((state) => state.setCourse);
   const courses = courseStore((state) => state.courses);
@@ -13,7 +15,7 @@ const Details = () => {
   };
   const onSubmit = (value) => {
     const data = { ...value, select: course };
-    console.log(data);
+    const token = localStorage.getItem("token");
     const postData = async () => {
       try {
         const response = await fetch(
@@ -30,11 +32,14 @@ const Details = () => {
             }),
             headers: {
               "Content-Type": "application/json",
+              "x-auth-token": token,
             },
           }
         );
-        const json = await response.json();
-        console.log(json);
+        if (response.ok) {
+          navigate("/dashboard");
+          console.log(response);
+        }
       } catch (error) {
         console.log(error);
       }
@@ -44,10 +49,9 @@ const Details = () => {
 
   return (
     <div className="w-full  text-3xl font-boldm antialiased h-screen text-white/80 overflow-hidden">
-      <div className="w-full  flex justify-between  items-center backdrop-blur-md  px-20 h-14">
-        <span>Logo</span>
-        <span className="btn   text-white active:bg-white/45 outline-white outline-1 hover:bg-white text-base rounded-full focus:border-2  outline-none ">
-          skip
+      <div className="w-full border-b border-white/15  flex justify-between  items-center backdrop-blur-md  px-20 h-14">
+        <span className="w-32 h-11">
+          <Logo />
         </span>
       </div>
       <div className="py-12  gap-10 flex flex-col items-center  w-full px-20 h-full ">
@@ -129,7 +133,7 @@ const Details = () => {
             </div>
             <label
               htmlFor=""
-              className="input input-bordered rounded-full flex items-center gap-2 "
+              className="input mb-5 input-bordered rounded-full flex items-center gap-2 "
             >
               Enter you grade
               <input
@@ -140,7 +144,12 @@ const Details = () => {
                 {...register("grade")}
               />
             </label>
-            <button type="btn submit">submit</button>
+            <button
+              type="submit"
+              className="btn w-32 rounded-full text-base text-black self-center bg-white/60 hover:bg-white/45 transition-colors"
+            >
+              submit
+            </button>
           </div>
         </form>
       </div>

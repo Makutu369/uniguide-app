@@ -9,6 +9,7 @@ export default {
         input: "#FCFCFD",
         person: "#BC8FF4",
         mainbackground: "#121212",
+        graySecondary: "#1F1F1F",
         primary: "#FFDEF2",
         secondary: "#FF5C5E",
       },
