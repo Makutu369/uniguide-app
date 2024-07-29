@@ -61,7 +61,7 @@ const Details = () => {
           <div className="flex flex-col gap-3">
             <span className="text-base">details</span>
             <label className="input input-bordered rounded-full flex items-center gap-2">
-              FirstName
+              FirstName 
               <input
                 type="text"
                 className="grow"
