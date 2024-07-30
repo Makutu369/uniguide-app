@@ -53,9 +53,9 @@ const LoginBtn = () => {
     }
   };
   return (
-    <div className="">
+    <div className="small-text">
       <button
-        className="btn  bg-white text-black active:bg-white/45 hover:bg-white text-base rounded-full focus:border-2  outline-none "
+        className="btn sm:  bg-white/70 text-black active:bg-white/45 hover:bg-white/50 text-base rounded-full focus:border-2  outline-none "
         onClick={() => document.getElementById("my_modal_1").showModal()}
       >
         sign in

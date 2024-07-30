@@ -7,7 +7,7 @@ const User = () => {
     <div className="h-11">
       <DropdownMenu.Root>
         <DropdownMenu.Trigger>
-          <div className="h-11 flex gap-x-3 text-sm  w-32 rounded-lg border-r border-white/10 items-center">
+          <div className="h-11 flex gap-x-3 text-sm  w-32  border-r border-white/10 items-center">
             <Avatar fallback={"T"} radius="full" />
             <div className="flex flex-col justify-items-center">
               <span>{Details.firstName} Delinto </span>

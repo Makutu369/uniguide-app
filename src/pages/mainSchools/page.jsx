@@ -10,21 +10,32 @@ const Findschools = () => {
   return (
     <div className="text-white/80   text-white font-boldm antialiased bg-mainbackground flex flex-col  w-full">
       <div className="w-full h-14 border-b border-white/15">hello</div>
-      <div className="mx-auto flex gap-4 my-5 group">
-        <input
-          onChange={(e) => setSearchTerm(e.target.value)}
-          type="text"
-          value={searchTerm}
-          className="input input-bordered rounded-full"
-        />
-        <div className="self-center rounded-full  p-1 border-white/15 border group-hover:bg-white/25  transition-colors">
-          <img src={arrow} alt="" className="" />
+
+      <div className="flex flex-col w-[40%] mx-5 bg-violet-400/15 p-5 my-9 rounded-lg">
+        <span className="text-lg text-white font-semibold">
+          Search every university here
+        </span>
+        <span className="text-white/50">
+          type the name of the school you want to search here and you will see
+          it
+        </span>
+        <div className="flex gap-4 my-5 group">
+          <input
+            onChange={(e) => setSearchTerm(e.target.value)}
+            type="text"
+            value={searchTerm}
+            className="input input-bordered rounded-full w-full"
+          />
+          <div className="self-center rounded-full  p-1 border-white/15 border group-hover:bg-white/25  transition-colors">
+            <img src={arrow} alt="" className="" />
+          </div>
         </div>
       </div>
+
       <div className="mx-5 flex mb-11  rounded border border-white/15">
         <div className="w-[30%] max-w-[30%] h-full  flex flex-col ">
           <div className="w-full border-r border-b px-5 border-white/15 py-2 flex items-center min-h-14  h-14 ">
-            <span>hello</span>
+            <span className="mx-auto text-lg font-semibold">University</span>
           </div>
           <div className="flex-auto border-r border-white/15">
             {" "}

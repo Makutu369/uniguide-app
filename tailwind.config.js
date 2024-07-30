@@ -15,6 +15,7 @@ export default {
       },
       fontFamily: {
         boldm: ["Dm sans"],
+        montserrat: ["Montserrat"],
       },
     },
   },
