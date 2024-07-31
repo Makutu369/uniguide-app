@@ -1,8 +1,8 @@
 import { courseStore } from "./store/courseStore";
 import { coursesData } from "./lib/trackData";
 import { useForm } from "react-hook-form";
-import Logo from "../../assets/svgs/logo";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../../components/SignPage/Navbar";
 const Details = () => {
   const { handleSubmit, register } = useForm();
   const navigate = useNavigate();
@@ -48,14 +48,12 @@ const Details = () => {
   };
 
   return (
-    <div className="w-full  text-3xl font-boldm antialiased h-screen text-white/80 overflow-hidden">
-      <div className="w-full border-b border-white/15  flex justify-between  items-center backdrop-blur-md  px-20 h-14">
-        <span className="w-32 h-11">
-          <Logo />
-        </span>
-      </div>
+    <div className="w-full   font-boldm antialiased h-screen text-white/80 overflow-hidden">
+      <Navbar route={"/dashboard"} />
       <div className="py-12  gap-10 flex flex-col items-center  w-full px-20 h-full ">
-        <span className="text-5xl font-semibold">welcome!</span>
+        <span className="text-5xl font-semibold font-montserrat">
+          welcome to Uniguide!
+        </span>
         <span className="">lets get your details</span>
         <form
           action=""
@@ -70,6 +68,7 @@ const Details = () => {
                 type="text"
                 className="grow"
                 name="firstName"
+                required
                 placeholder="Enter your name"
                 {...register("firstName")}
               />
@@ -80,6 +79,7 @@ const Details = () => {
                 type="text"
                 className="grow"
                 name="lastName"
+                required
                 placeholder="Enter your name"
                 {...register("lastName")}
               />
@@ -103,6 +103,7 @@ const Details = () => {
             <select
               onChange={handleSelect}
               name="Programme"
+              required
               className="select select-bordered rounded-full w-full "
             >
               <option disabled selected defaultValue={0}>

@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <>
       <div className=" font-boldm antialiased text-white w-full h-screen overflow-hidden flex-col">
-        <Navbar>
+        <Navbar route={"/"}>
           {" "}
           <Link
             to={"/faqs"}
@@ -42,7 +42,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="h-screen w-full snap-mandatory bg-stone-300"></div>
     </>
   );
 };

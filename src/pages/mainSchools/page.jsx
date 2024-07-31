@@ -1,16 +1,18 @@
 import { ScrollArea } from "@radix-ui/themes";
 import UniList from "./components/uniList";
-import TopNav from "./components/topNav";
-import CourseList from "./components/courseList";
+import { useNavigate } from "react-router-dom";
+import { SegmentedControl } from "@radix-ui/themes";
 import arrow from "../../assets/arrow-right.svg";
 import { useSearch } from "./store/searchTerm";
+import Navbar from "../../components/SignPage/Navbar";
+import CourseList from "./components/CourseList";
 const Findschools = () => {
+  const navigate = useNavigate();
   const setSearchTerm = useSearch((state) => state.setSearchTerm);
   const searchTerm = useSearch((state) => state.searchTerm);
   return (
-    <div className="text-white/80   text-white font-boldm antialiased bg-mainbackground flex flex-col  w-full">
-      <div className="w-full h-14 border-b border-white/15">hello</div>
-
+    <div className="text-white/80 text-white font-boldm antialiased bg-mainbackground flex flex-col  w-full">
+      <Navbar route={"/dashboard"} />
       <div className="flex flex-col w-[40%] mx-5 bg-violet-400/15 p-5 my-9 rounded-lg">
         <span className="text-lg text-white font-semibold">
           Search every university here
@@ -56,7 +58,25 @@ const Findschools = () => {
 
         {/* separation */}
         <div className="flex-auto ">
-          <TopNav />
+          <div className="h-14 font-boldm border-b border-white/15 w-ful py-2 flex justify-center ">
+            <SegmentedControl.Root defaultValue="inbox" radius="full" size="3">
+              <SegmentedControl.Item
+                value="alogrithm"
+                className="cursor-pointer"
+                onClick={() => navigate("/user/universities/algorithm")}
+              >
+                Algorithm
+              </SegmentedControl.Item>
+
+              <SegmentedControl.Item
+                value="ai"
+                className="cursor-pointer grow"
+                onClick={() => navigate("/user/universities/ai")}
+              >
+                Ai
+              </SegmentedControl.Item>
+            </SegmentedControl.Root>
+          </div>
           <CourseList />
         </div>
       </div>

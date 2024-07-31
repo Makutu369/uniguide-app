@@ -17,9 +17,15 @@ const Dashboard = () => {
   return (
     <main className="font-boldm bg-[#121212] antialiased w-full h-screen text-base overflow-auto text-white/80">
       <div className="w-full border-b border-white/15 px-16 flex text-lg items-center justify-between h-14">
-        <div className="h-11 w-14 flex items-center justify-center mt-3">
-          <img src={logo} alt="" />
+        <div className="flex gap-x-3">
+          <div className="h-11 w-11 flex items-center justify-center">
+            <img src={logo} alt="" />
+          </div>
+          <span className="self-center font-montserrat text-xl font-bold">
+            Uniguide
+          </span>
         </div>
+
         <div className="flex gap-3">
           <Navlinks route={"/user/universities"}>universities</Navlinks>
           <Navlinks route={"/tour"}>Take a tour</Navlinks>
