@@ -1,7 +1,9 @@
 import { Link, ScrollArea, Separator } from "@radix-ui/themes";
 import Spaceship from "../animations/spaceship";
+import { useArchive } from "../../mainSchools/store/archived";
 const Tracking = () => {
   const isSchool = true;
+  const archive = useArchive((state) => state.archive);
   return (
     <div className="px-16">
       <div className="flex mt-6  text-base justify-between">
@@ -31,6 +33,11 @@ const Tracking = () => {
             <span>university</span>
           </div>
           */}
+          {archive.map((school) => (
+            <div className="mb-2" key={school}>
+              {school}
+            </div>
+          ))}
           {isSchool && (
             <div className="mt-4 grow flex flex-col justify-center items-center">
               <div>No School added yet </div>

@@ -4,10 +4,13 @@ import moreButton from "../../../assets/more.svg";
 import link from "../../../assets/link.svg";
 import { DropdownMenu } from "@radix-ui/themes";
 import { useCourse } from "../store/courses";
+import { useArchive } from "../store/archived";
 
 const UniList = () => {
   const universities = useUniversities((state) => state.schools);
   const setUniversities = useUniversities((state) => state.setSchools);
+  const isLoading = useUniversities((state) => state.isLoading);
+  const setArchive = useArchive((state) => state.setArchive);
   useEffect(() => {
     setUniversities();
   }, [setUniversities]);
@@ -27,6 +30,7 @@ const UniList = () => {
           }}
         >
           <span>{university.school}</span>
+          {isLoading && <div className="skeleton h-11 w-[70%]"></div>}
           <DropdownMenu.Root>
             <DropdownMenu.Trigger>
               <div className="w-4 h-2">
@@ -42,7 +46,13 @@ const UniList = () => {
                 </span>{" "}
               </DropdownMenu.Item>
               <DropdownMenu.Separator />
-              <DropdownMenu.Item>Archive</DropdownMenu.Item>
+              <DropdownMenu.Item
+                onClick={() => {
+                  setArchive(university.school);
+                }}
+              >
+                Archive
+              </DropdownMenu.Item>
             </DropdownMenu.Content>
           </DropdownMenu.Root>
         </div>

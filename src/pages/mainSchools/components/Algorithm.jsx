@@ -24,7 +24,9 @@ const Algorithm = () => {
         : "green";
     return result;
   };
-
+  const percentage = (grade, cutoff) => {
+    return (grade / cutoff) * 80;
+  };
   return (
     <>
       {courseFilter.map((course) => (
@@ -39,10 +41,12 @@ const Algorithm = () => {
             <Progress
               variant="soft"
               color={percentageColor(Number(Details.grade), course.cutoff)}
-              value={24}
+              value={percentage(Number(Details.grade), course.cutoff)}
             />
           </span>
-          <span>{course.cutoff}</span>
+          <span>
+            {Math.floor(percentage(Number(Details.grade), course.cutoff))}
+          </span>
         </div>
       ))}
     </>
