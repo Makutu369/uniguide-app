@@ -45,7 +45,7 @@ const Algorithm = () => {
             />
           </span>
           <span>
-            {Math.floor(percentage(Number(Details.grade), course.cutoff))}
+            {course.cutoff}
           </span>
         </div>
       ))}
