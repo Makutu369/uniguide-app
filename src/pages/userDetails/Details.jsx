@@ -19,7 +19,7 @@ const Details = () => {
     const postData = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/user/submit-details",
+          "https://uniguide-back.onrender.com/user/submit-details",
           {
             method: "POST",
             body: JSON.stringify({

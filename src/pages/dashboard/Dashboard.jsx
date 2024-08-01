@@ -8,8 +8,10 @@ import Notifications from "./components/notifications";
 import Example from "./components/chart";
 import { useData } from "./store/userData";
 import { useEffect } from "react";
+import { useArchive } from "../mainSchools/store/archived";
 const Dashboard = () => {
   const { getDetails, Details } = useData();
+  const archive = useArchive((state) => state.archive);
   useEffect(() => {
     getDetails();
   }, [getDetails]);
@@ -52,7 +54,7 @@ const Dashboard = () => {
               <div className=" p-5 w-[400px] rounded-lg bg-[#1F1F1F] gap-y-3 flex flex-col">
                 <div className="p-3">
                   <span className="text-white block text-xl font-semibold">
-                    Statistic
+                    Archived schools
                   </span>
                   <span className="text-base text-white/40">
                     All school statistic
@@ -61,13 +63,13 @@ const Dashboard = () => {
                 <Admisions
                   color="bg-green-400"
                   percentage={"15.6%"}
-                  number={56}
+                  number={archive.length}
                   closed={"open"}
                 />
                 <Admisions
                   color="bg-red-400"
                   percentage={"56.8%"}
-                  number={12}
+                  number={0}
                   closed={"Closed"}
                 />
               </div>

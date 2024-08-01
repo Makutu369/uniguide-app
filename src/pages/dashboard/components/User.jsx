@@ -1,8 +1,14 @@
 import { DropdownMenu, Avatar } from "@radix-ui/themes";
 import { useData } from "../store/userData";
+import { useNavigate } from "react-router-dom";
 const User = () => {
+  const navigate = useNavigate();
   const { Details } = useData();
   console.log(Details);
+  const handleClick = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
   return (
     <div className="h-11">
       <DropdownMenu.Root>
@@ -10,7 +16,7 @@ const User = () => {
           <div className="h-11 flex gap-x-3 text-sm  w-32  border-r border-white/10 items-center">
             <Avatar fallback={"T"} radius="full" />
             <div className="flex flex-col justify-items-center">
-              <span>{Details.firstName} Delinto </span>
+              <span>{Details.firstName}</span>
               <span>{Details.lastName}</span>
             </div>
           </div>
@@ -21,19 +27,13 @@ const User = () => {
           <DropdownMenu.Sub>
             <DropdownMenu.SubTrigger>More</DropdownMenu.SubTrigger>
             <DropdownMenu.SubContent>
-              <DropdownMenu.Item>Move to project…</DropdownMenu.Item>
-              <DropdownMenu.Item>Move to folder…</DropdownMenu.Item>
-
               <DropdownMenu.Separator />
-              <DropdownMenu.Item>Advanced options…</DropdownMenu.Item>
             </DropdownMenu.SubContent>
           </DropdownMenu.Sub>
 
           <DropdownMenu.Separator />
-          <DropdownMenu.Item>Share</DropdownMenu.Item>
-          <DropdownMenu.Item>Add to favorites</DropdownMenu.Item>
           <DropdownMenu.Separator />
-          <DropdownMenu.Item shortcut="" color="red">
+          <DropdownMenu.Item onClick={handleClick} shortcut="" color="red">
             Logout
           </DropdownMenu.Item>
         </DropdownMenu.Content>

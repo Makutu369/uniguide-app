@@ -42,6 +42,7 @@ const LoginBtn = () => {
       const data = await response.json();
       setIsloading(false);
       if (data.success) {
+        alert("Logged in successfully");
         const token = response.headers.get("x-auth-token");
         localStorage.setItem("token", token);
         navigate("/user/info");

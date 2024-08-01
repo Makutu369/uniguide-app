@@ -2,7 +2,6 @@ import { Link, ScrollArea, Separator } from "@radix-ui/themes";
 import Spaceship from "../animations/spaceship";
 import { useArchive } from "../../mainSchools/store/archived";
 const Tracking = () => {
-  const isSchool = true;
   const archive = useArchive((state) => state.archive);
   return (
     <div className="px-16">
@@ -38,7 +37,7 @@ const Tracking = () => {
               {school}
             </div>
           ))}
-          {isSchool && (
+          {archive.length <= 0 && (
             <div className="mt-4 grow flex flex-col justify-center items-center">
               <div>No School added yet </div>
               <div>
