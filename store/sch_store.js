@@ -12,8 +12,8 @@ const useUniversities = create((set) => {
           "https://uniguide-back.onrender.com/universities"
         );
         const data = await response.json();
-        set({ schools: [...data] });
         set({ isLoading: false });
+        set({ schools: [...data] });
       } catch (err) {
         set({ isError: true });
         set({ isLoading: false });

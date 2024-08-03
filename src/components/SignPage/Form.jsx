@@ -4,10 +4,12 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { ToastContainer, toast } from "react-toastify";
 const Form = () => {
   const navigate = useNavigate();
   const [isloading, setIsloading] = useState(false);
+  const notifyUser = () =>
+    toast("user logged in successfully verify email and password");
   const {
     formState: { errors },
     handleSubmit,
@@ -31,8 +33,9 @@ const Form = () => {
           }
         );
         setIsloading(false);
-        const object = result.json();
-        console.log(object);
+        if (result.ok) {
+          notifyUser();
+        }
       } catch (err) {
         console.log(err);
         setIsloading(false);
@@ -104,6 +107,7 @@ const Form = () => {
           </div>
         </div>
       </form>
+      <ToastContainer position="top-right" autoClose={5000} />
     </motion.div>
   );
 };

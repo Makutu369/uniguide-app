@@ -5,10 +5,10 @@ import SchoolsPublic from "./pages/Schools/SchoolsPublic";
 import Ai from "./pages/mainSchools/components/Ai";
 import Verified from "./pages/Verified/Verified";
 import Sign from "./pages/SignPage/Sign";
+import Reset from "./pages/reset-pass/Reset";
 import Details from "./pages/userDetails/Details";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Findschools from "./pages/mainSchools/page";
-import Reset from "./pages/resetPassword/Reset";
 import "@radix-ui/themes/styles.css";
 import FAQPage from "./pages/Faq/faqPage";
 import { createBrowserRouter } from "react-router-dom";
@@ -35,11 +35,11 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-    errorElement: (
-      <div className="w-full h-screen font-montserrat text-7xl font-bold flex justify-center items-center">
-        Page Not found 404
-      </div>
-    ),
+    // errorElement: (
+    //   <div className="w-full h-screen font-montserrat text-7xl font-bold flex justify-center items-center">
+    //     Page Not found 404
+    //   </div>
+    // ),
   },
   {
     path: "/dashboard",
@@ -52,6 +52,7 @@ const router = createBrowserRouter([
   { path: "/verified", element: <Verified /> },
   { path: "/register", element: <Sign /> },
   { path: "/user/info", element: <Details /> },
+  { path: "/reset-password", element: <Reset /> },
   {
     path: "/user/universities",
     element: <Findschools />,
@@ -66,7 +67,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-  { path: "/reset-password", element: <Reset /> },
   { path: "/faqs", element: <FAQPage /> },
 ]);
 

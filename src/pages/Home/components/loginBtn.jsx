@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import eyeView from "../../../assets/eye_view.svg";
 import eyeSlash from "../../../assets/eye_slash.svg";
 import closeIcon from "../../../assets/close-button.svg";
 import arrow from "../../../assets/arrow-right.svg";
 import Animate from "./Animate";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 /**
  *
  * @returns a login button with takes in the jwt form the user
@@ -14,10 +16,12 @@ const LoginBtn = () => {
   const [type, setType] = useState("password");
   const [isloading, setIsloading] = useState(false);
   const [issucces, setIssuccess] = useState(false);
-
+  const [message, setMessage] = useState("");
+  const success = () => toast(message);
   const changeType = () => {
     type === "password" ? setType("text") : setType("password");
   };
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -25,7 +29,8 @@ const LoginBtn = () => {
     const formEntries = Object.fromEntries(formData.entries());
     const email = formEntries.email;
     const password = formEntries.password;
-    const url = "https://uniguide-back.onrender.com";
+    const url = "http://localhost:5000";
+
     try {
       setIsloading(true);
       setIssuccess(false);
@@ -42,17 +47,23 @@ const LoginBtn = () => {
       const data = await response.json();
       setIsloading(false);
       if (data.success) {
-        alert("Logged in successfully");
+        success();
+        setMessage("user logged in successfully");
         const token = response.headers.get("x-auth-token");
         localStorage.setItem("token", token);
-        navigate("/user/info");
+        await delay(2000);
+        // navigate("/user/info");
+        console.log(data);
       }
+      console.log(data);
     } catch (error) {
       console.log(error);
       setIsloading(false);
       setIssuccess(false);
+      setMessage("Invalid email or password");
     }
   };
+
   return (
     <div className="small-text">
       <button
@@ -157,10 +168,7 @@ const LoginBtn = () => {
               </span>
             </div>
 
-            <Link
-              to={"/reset-password"}
-              className="text-base group self-center flex gap-4 transition-transform cursor-pointer text-white/40 justify-center items-center"
-            >
+            <div className="text-base group self-center flex gap-4 transition-transform cursor-pointer text-white/40 justify-center items-center">
               <span className="group-hover:text-white/70 group-active:text-white">
                 forgot password?
               </span>{" "}
@@ -171,8 +179,10 @@ const LoginBtn = () => {
                   className="opacity-40 group-hover:opacity-80 group-hover:translate-x-5 transition-transform duration-300"
                 />
               </div>
-            </Link>
+              {/* Open the modal using document.getElementById('ID').showModal() method */}
+            </div>
           </div>
+          <ToastContainer position="top-right" autoClose={5000} />
         </div>
       </dialog>
     </div>

@@ -6,7 +6,6 @@ import arrow from "../../assets/arrow-right.svg";
 import { useSearch } from "./store/searchTerm";
 import Navbar from "../../components/SignPage/Navbar";
 import CourseList from "./components/CourseList";
-import ChartsOverviewDemo from "./components/Bar";
 // import PieBasic from "./components/pie";
 const Findschools = () => {
   const navigate = useNavigate();
@@ -17,7 +16,6 @@ const Findschools = () => {
       <Navbar route={"/dashboard"} />
       <div className="flex h-[30%]">
         {/* <PieBasic /> */}
-        <ChartsOverviewDemo />
         <div className="flex flex-col w-[40%]  mx-5 bg-violet-400/15 p-5 my-9 rounded-lg">
           <span className="text-lg text-white font-semibold">
             Search every university here

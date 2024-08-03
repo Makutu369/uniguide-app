@@ -1,5 +1,5 @@
 // src/pages/FAQPage/FAQPage.jsx
-
+import { Accordion } from "rsuite";
 import { useState, useEffect } from "react";
 import faqs from "../../assets/data.json";
 import Navbar from "../../components/SignPage/Navbar";
@@ -11,7 +11,6 @@ const FAQPage = () => {
   useEffect(() => {
     setFaqList(faqs);
   }, []);
-
   return (
     <div className="font-boldm w-full ">
       <div className="w-full h-14">
@@ -20,20 +19,21 @@ const FAQPage = () => {
         </Navbar>
       </div>
       <div className="mx-auto font-montserrat font-bold text-lg w-[60%] gap-2 mt-9  flex justify-center items-center flex-col">
-        <h1>Help</h1>
-        <h2> Need Assitance? Check out some Frequently Asked Questions!</h2>
+        <h2 className="flex flex-col justify-center items-center gap-2 w-full">
+          {" "}
+          <span className="">Need Assitance?</span>{" "}
+          <span className="text-base font-normal">
+            Check out some Frequently Asked Questions!
+          </span>
+        </h2>
       </div>
       <div className="text-white/90 mx-auto w-[70%]">
         {faqList.map((faq, index) => (
-          <div key={index} className="collapse mb-4 bg-neutral-800">
-            <input type="radio" name="my-accordion-2" />
-            <div className="collapse-title  ">
-              <h3>{faq.question}</h3>
-            </div>
-            <div className="collapse-content text-white/70">
-              <p>{faq.answer}</p>
-            </div>
-          </div>
+          <Accordion key={index} className="bg-[#1F1F1F] mb-3">
+            <Accordion.Panel header={`${faq.question}`} className="active:">
+              {faq.answer}
+            </Accordion.Panel>
+          </Accordion>
         ))}
       </div>
     </div>
