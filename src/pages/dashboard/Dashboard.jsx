@@ -43,13 +43,6 @@ const Dashboard = () => {
       <div className="h-[90%]">
         <div className=" w-full my-6 h-[80%] flex gap-2  text-2xl px-16">
           <div className="h-full  w-[80%]">
-            <div>
-              <span className="">welcome back</span>{" "}
-              <span className="text-white">{Details.lastName}</span>
-              <div className="text-base text-white/50">
-                your Dashboard is here
-              </div>
-            </div>
             <div className="mt-4  flex h-[70%] ">
               <div className=" p-5 w-[400px] rounded-lg bg-[#1F1F1F] gap-y-3 flex flex-col">
                 <div className="p-3">

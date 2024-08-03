@@ -4,7 +4,7 @@ import animateData from "../../../assets/success.json";
 const Animate = () => {
   return (
     <div>
-      <Lottie animationData={animateData} />
+      <Lottie loop={false} animationData={animateData} />
     </div>
   );
 };

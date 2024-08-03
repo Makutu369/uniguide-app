@@ -1,14 +1,17 @@
 import { courseStore } from "./store/courseStore";
+import { useState } from "react";
 import { coursesData } from "./lib/trackData";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/SignPage/Navbar";
+import { Spinner } from "@nextui-org/react";
 const Details = () => {
   const { handleSubmit, register } = useForm();
   const navigate = useNavigate();
   const course = courseStore((state) => state.course);
   const setCourse = courseStore((state) => state.setCourse);
   const courses = courseStore((state) => state.courses);
+  const [isloading, setIsloading] = useState(false);
 
   const handleSelect = (e) => {
     setCourse(e.target.value);
@@ -17,6 +20,7 @@ const Details = () => {
     const data = { ...value, select: course };
     const token = localStorage.getItem("token");
     const postData = async () => {
+      setIsloading(true);
       try {
         const response = await fetch(
           "https://uniguide-back.onrender.com/user/submit-details",
@@ -37,11 +41,12 @@ const Details = () => {
           }
         );
         if (response.ok) {
+          setIsloading(false);
           navigate("/dashboard");
-          console.log(response);
         }
       } catch (error) {
         console.log(error);
+        setIsloading(false);
       }
     };
     postData();
@@ -147,9 +152,9 @@ const Details = () => {
             </label>
             <button
               type="submit"
-              className="btn w-32 rounded-full text-base text-black self-center bg-white/60 hover:bg-white/45 transition-colors"
+              className="btn w-32 flex gap-x-2 rounded-full text-base text-black self-center bg-white/60 hover:bg-white/45 transition-colors"
             >
-              submit
+              <span>submit</span> {isloading && <Spinner color="default" />}
             </button>
           </div>
         </form>

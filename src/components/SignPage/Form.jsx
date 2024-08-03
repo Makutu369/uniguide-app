@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import { Spinner } from "@nextui-org/react";
 const Form = () => {
   const navigate = useNavigate();
   const [isloading, setIsloading] = useState(false);
@@ -88,13 +89,10 @@ const Form = () => {
         </div>
         <motion.button
           whileTap={{ scale: 0.9 }}
-          className="border-primary border-2 px-4 text-nowrap flex justify-center items-center  self-center hover:cursor-pointer w-32 h-14 rounded-full"
+          className="border-primary border-2 px-4 text-nowrap flex justify-center items-center gap-x-2  self-center hover:cursor-pointer w-32 h-14 rounded-full"
           type="submit"
         >
-          <span>Sign up</span>{" "}
-          {isloading && (
-            <span className="ml-3 loading loading-spinner loading-lg"></span>
-          )}
+          <span>Sign up</span> {isloading && <Spinner color="secondary" />}
         </motion.button>
         <div className="flex mt-4 justify-center">
           <p className="text-white/40">Already have an account?</p>

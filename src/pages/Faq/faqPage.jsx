@@ -1,5 +1,5 @@
 // src/pages/FAQPage/FAQPage.jsx
-import { Accordion } from "rsuite";
+import { Accordion, AccordionItem } from "@nextui-org/react";
 import { useState, useEffect } from "react";
 import faqs from "../../assets/data.json";
 import Navbar from "../../components/SignPage/Navbar";
@@ -28,13 +28,13 @@ const FAQPage = () => {
         </h2>
       </div>
       <div className="text-white/90 mx-auto w-[70%]">
-        {faqList.map((faq, index) => (
-          <Accordion key={index} className="bg-[#1F1F1F] mb-3">
-            <Accordion.Panel header={`${faq.question}`} className="active:">
+        <Accordion selectionMode="multiple ">
+          {faqList.map((faq, index) => (
+            <AccordionItem key={index} title={faq.question}>
               {faq.answer}
-            </Accordion.Panel>
-          </Accordion>
-        ))}
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
     </div>
   );

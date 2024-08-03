@@ -7,6 +7,7 @@ import arrow from "../../../assets/arrow-right.svg";
 import Animate from "./Animate";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Spinner } from "@nextui-org/react";
 /**
  *
  * @returns a login button with takes in the jwt form the user
@@ -29,7 +30,7 @@ const LoginBtn = () => {
     const formEntries = Object.fromEntries(formData.entries());
     const email = formEntries.email;
     const password = formEntries.password;
-    const url = "http://localhost:5000";
+    const url = "https://uniguide-back.onrender.com";
 
     try {
       setIsloading(true);
@@ -48,6 +49,7 @@ const LoginBtn = () => {
       setIsloading(false);
       if (data.success) {
         success();
+        setIssuccess(true);
         setMessage("user logged in successfully");
         const token = response.headers.get("x-auth-token");
         localStorage.setItem("token", token);
@@ -145,9 +147,7 @@ const LoginBtn = () => {
                   className="btn mt-4 flex justify-center items-center bg-white text-black active:bg-white/45 hover:bg-white rounded-full"
                 >
                   <div className="text-lg font-light">sign in</div>
-                  {isloading && (
-                    <span className="loading loading-ring loading-sm"></span>
-                  )}
+                  {isloading && <Spinner color="secondary" />}
                   {issucces && (
                     <span className="h-8 w-8">
                       <Animate />
