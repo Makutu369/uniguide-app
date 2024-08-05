@@ -19,7 +19,7 @@ const Home = () => {
           <LoginBtn />
         </Navbar>
         <div className="flex relative  px-[60px] py-12 h-full">
-          <div className=" pt-7 relative z-50 flex flex-col  max-w-[700px]">
+          <div className=" pt-7 relative z-50 text-primary flex flex-col  max-w-[700px]">
             <span className="pb-3  text-7xl decoration-pink-400 font-extrabold">
               How will you shape your future?{" "}
             </span>

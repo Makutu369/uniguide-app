@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import logo from "../../assets/Graphic_Elements.svg";
+import logo from "../../assets/logo1.svg";
 
 // eslint-disable-next-line react/prop-types
 const Navbar = ({ children, route }) => {
   return (
     <div className="flex border-b  border-white/10 py-2 px-16 justify-between items-center w-full h-14 ">
       <Link to={`${route}`} className="flex gap-x-3 no-underline">
-        <div className="w-14 h-11 flex items-center justify-normal">
+        <div className="w-8 h-8 flex items-center justify-normal">
           <img src={logo} alt="" />
         </div>
         <span className=" no-underline font-montserrat text-white self-center text-xl font-bold ">

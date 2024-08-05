@@ -1,17 +1,14 @@
-import Admisions from "./components/Admissions";
 import User from "./components/User";
-import logo from "../../assets/Graphic_Elements.svg";
+import logo from "../../assets/logo1.svg";
 import notification from "../../assets/notification-icon.svg";
 import Navlinks from "./components/navlinks";
 import Tracking from "./components/Tracking";
-import Notifications from "./components/notifications";
-import Example from "./components/chart";
 import { useData } from "./store/userData";
 import { useEffect } from "react";
-import { useArchive } from "../mainSchools/store/archived";
+import Pies from "./components/chart";
+import Bars from "./components/bar";
 const Dashboard = () => {
   const { getDetails, Details } = useData();
-  const archive = useArchive((state) => state.archive);
   useEffect(() => {
     getDetails();
   }, [getDetails]);
@@ -20,7 +17,7 @@ const Dashboard = () => {
     <main className="font-boldm bg-[#121212] antialiased w-full h-screen text-base overflow-auto text-white/80">
       <div className="w-full border-b border-white/15 px-16 flex text-lg items-center justify-between h-14">
         <div className="flex gap-x-3">
-          <div className="h-11 w-11 flex items-center justify-center">
+          <div className="h-8 w-8 flex items-center justify-center">
             <img src={logo} alt="" />
           </div>
           <span className="self-center font-montserrat text-xl font-bold">
@@ -40,40 +37,20 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <div className="h-[90%]">
-        <div className=" w-full my-6 h-[80%] flex gap-2  text-2xl px-16">
-          <div className="h-full  w-[80%]">
-            <div className="mt-4  flex h-[70%] ">
-              <div className=" p-5 w-[400px] rounded-lg bg-[#1F1F1F] gap-y-3 flex flex-col">
-                <div className="p-3">
-                  <span className="text-white block text-xl font-semibold">
-                    Archived schools
-                  </span>
-                  <span className="text-base text-white/40">
-                    All school statistic
-                  </span>
-                </div>
-                <Admisions
-                  color="bg-green-400"
-                  percentage={"15.6%"}
-                  number={archive.length}
-                  closed={"open"}
-                />
-                <Admisions
-                  color="bg-red-400"
-                  percentage={"56.8%"}
-                  number={0}
-                  closed={"Closed"}
-                />
-              </div>
-              <div className=" text-base h-full ml-4 w-[90%] border border-white/20 bg-[#1F1F1F] rounded-xl">
-                <Example />
-              </div>
-            </div>
-          </div>
-          <Notifications />
+
+      <div className="flex flex-col gap-y-20 h-[100%]">
+        <div className="h-[40%] ">
+          <Tracking></Tracking>
         </div>
-        <Tracking></Tracking>
+        <div className="flex w-full h-[50%] gap-x-5 justify-between px-5">
+          <div className="w-[30%]">
+            <Pies />
+          </div>
+          <div className="w-[90%]">
+            <Bars />
+          </div>
+          <div></div>
+        </div>
       </div>
     </main>
   );

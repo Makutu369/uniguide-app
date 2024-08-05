@@ -13,6 +13,11 @@ const Algorithm = () => {
   useEffect(() => {
     getDetails();
   }, [getDetails]);
+
+  const sum = courseFilter.filter(
+    (course) => Number(Details.grade) < course.cutoff
+  ).length;
+
   const percentageColor = (grade, cutoff) => {
     const result =
       (grade / cutoff) * 80 < 30
@@ -45,7 +50,7 @@ const Algorithm = () => {
             />
           </span>
           <span>
-            {course.cutoff}
+            {course.cutoff} sum : {sum}
           </span>
         </div>
       ))}

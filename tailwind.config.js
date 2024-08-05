@@ -15,9 +15,9 @@ export default {
         input: "#FCFCFD",
         person: "#BC8FF4",
         mainbackground: "#121212",
+        primary: "#8884D8",
         graySecondary: "#1F1F1F",
-        primary: "#FFDEF2",
-        secondary: "#FF5C5E",
+        secondary: "#82CA9D",
       },
       fontFamily: {
         boldm: ["Dm sans"],

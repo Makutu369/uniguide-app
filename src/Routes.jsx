@@ -5,6 +5,7 @@ import SchoolsPublic from "./pages/Schools/SchoolsPublic";
 import Ai from "./pages/mainSchools/components/Ai";
 import Verified from "./pages/Verified/Verified";
 import Sign from "./pages/SignPage/Sign";
+import Tour from "./pages/Tour/Tour";
 import Reset from "./pages/reset-pass/Reset";
 import Details from "./pages/userDetails/Details";
 import Dashboard from "./pages/dashboard/Dashboard";
@@ -68,6 +69,16 @@ const router = createBrowserRouter([
     ],
   },
   { path: "/faqs", element: <FAQPage /> },
+  {
+    path: "/tour",
+    element: <Tour />,
+    children: [
+      {
+        path: "/tour/:id",
+        element: <Tour />,
+      },
+    ],
+  },
 ]);
 
 export default router;

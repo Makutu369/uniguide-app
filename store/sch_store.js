@@ -11,8 +11,8 @@ const useUniversities = create((set) => {
         const response = await fetch(
           "https://uniguide-back.onrender.com/universities"
         );
-        const data = await response.json();
         set({ isLoading: false });
+        const data = await response.json();
         set({ schools: [...data] });
       } catch (err) {
         set({ isError: true });
