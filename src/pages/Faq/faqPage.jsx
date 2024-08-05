@@ -27,7 +27,7 @@ const FAQPage = () => {
           </span>
         </h2>
       </div>
-      <div className="text-white/90 mx-auto w-[70%]">
+      <div className="text-white/90 mx-auto sm:w-[70%] w-[90%] ">
         <Accordion selectionMode="multiple ">
           {faqList.map((faq, index) => (
             <AccordionItem key={index} title={faq.question}>

@@ -18,12 +18,12 @@ const Home = () => {
           </Link>
           <LoginBtn />
         </Navbar>
-        <div className="flex relative  px-[60px] py-12 h-full">
-          <div className=" pt-7 relative z-50 text-primary flex flex-col  max-w-[700px]">
-            <span className="pb-3  text-7xl decoration-pink-400 font-extrabold">
+        <div className="flex relative px-6 md:px-[60px] py-12 h-full">
+          <div className=" pt-7  md:text-7xl text-4xl relative z-50 text-primary flex flex-col  max-w-[700px]">
+            <span className="pb-3   decoration-pink-400 font-extrabold">
               How will you shape your future?{" "}
             </span>
-            <span className="font-montserrat mb-3 text-7xl font-semibold ">
+            <span className="font-montserrat mb-3  font-semibold ">
               Lets navigate your university journey together
             </span>
             <span className="text-lg font-light mb-9 text-white/65">
@@ -37,7 +37,7 @@ const Home = () => {
               route={"universities"}
             />
           </div>
-          <div className="absolute h-96 z-10 right-6 top-0">
+          <div className="absolute h-96 z-10 right-6 top-0 hidden md:block">
             <Hero />
           </div>
         </div>

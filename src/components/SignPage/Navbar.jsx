@@ -4,7 +4,7 @@ import logo from "../../assets/logo1.svg";
 // eslint-disable-next-line react/prop-types
 const Navbar = ({ children, route }) => {
   return (
-    <div className="flex border-b  border-white/10 py-2 px-16 justify-between items-center w-full h-14 ">
+    <div className="flex border-b  border-white/10 py-2 sm:px-16 px-6 justify-between items-center w-full h-14 ">
       <Link to={`${route}`} className="flex gap-x-3 no-underline">
         <div className="w-8 h-8 flex items-center justify-normal">
           <img src={logo} alt="" />

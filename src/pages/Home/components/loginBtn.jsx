@@ -17,8 +17,7 @@ const LoginBtn = () => {
   const [type, setType] = useState("password");
   const [isloading, setIsloading] = useState(false);
   const [issucces, setIssuccess] = useState(false);
-  const [message, setMessage] = useState("");
-  const success = () => toast(message);
+  const success = () => toast("user logged in successfully");
   const changeType = () => {
     type === "password" ? setType("text") : setType("password");
   };
@@ -50,11 +49,10 @@ const LoginBtn = () => {
       if (data.success) {
         success();
         setIssuccess(true);
-        setMessage("user logged in successfully");
         const token = response.headers.get("x-auth-token");
         localStorage.setItem("token", token);
         await delay(2000);
-        // navigate("/user/info");
+        navigate("/user/info");
         console.log(data);
       }
       console.log(data);
@@ -62,7 +60,6 @@ const LoginBtn = () => {
       console.log(error);
       setIsloading(false);
       setIssuccess(false);
-      setMessage("Invalid email or password");
     }
   };
 

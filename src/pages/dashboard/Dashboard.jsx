@@ -15,7 +15,7 @@ const Dashboard = () => {
   console.log(Details);
   return (
     <main className="font-boldm bg-[#121212] antialiased w-full h-screen text-base overflow-auto text-white/80">
-      <div className="w-full border-b border-white/15 px-16 flex text-lg items-center justify-between h-14">
+      <div className="w-full border-b border-white/15 px-6 md:px-16  flex text-lg items-center justify-between h-14">
         <div className="flex gap-x-3">
           <div className="h-8 w-8 flex items-center justify-center">
             <img src={logo} alt="" />
@@ -25,14 +25,14 @@ const Dashboard = () => {
           </span>
         </div>
 
-        <div className="hidden sm:block gap-3">
+        <div className="hidden sm:block gap-x-3">
           <Navlinks route={"/user/universities"}>universities</Navlinks>
           <Navlinks route={"/tour"}>Take a tour</Navlinks>
           <Navlinks></Navlinks>
         </div>
-        <div className=" gap-3 flex">
+        <div className="gap-3 flex">
           <User />{" "}
-          <div className="flex self-center grow h-11 rounded-xl w-14 border border-white/10 hover:border-white/15 justify-center items-center">
+          <div className="hidden sm:block self-center grow h-11 rounded-xl w-14 border border-white/10 hover:border-white/15 justify-center items-center">
             <img className="h" src={notification} alt="" />
           </div>
         </div>

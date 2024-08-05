@@ -4,7 +4,7 @@ import { useArchive } from "../../mainSchools/store/archived";
 const Tracking = () => {
   const archive = useArchive((state) => state.archive);
   return (
-    <div className="px-16 h-full">
+    <div className="px-6 sm:px-16 h-full">
       <div className="flex mt-6  text-base justify-between">
         <span>Tracking school list</span>
         <Link className="cursor-pointer hover:text-sky-400 active:bg-sky-400/40 transition-colors">
