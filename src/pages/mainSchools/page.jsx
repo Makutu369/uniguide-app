@@ -13,7 +13,7 @@ const Findschools = () => {
   const searchTerm = useSearch((state) => state.searchTerm);
   return (
     <div className="text-white/80 text-white font-boldm antialiased bg-mainbackground flex flex-col  w-full">
-      <div className="h-16 w-full border-b border-white/15 flex px-5 items-center justify-between">
+      <div className="h-16 w-full border-b border-white/15 flex px-5 items-center justify-between gap-x-5">
         <Link to={`/dashboard`} className="flex gap-x-3 no-underline w-[30%]">
           <div className="w-8 h-8 flex items-center justify-normal">
             <img src={logo} alt="" />
@@ -33,8 +33,8 @@ const Findschools = () => {
         </div>
         <div className="w-[40%]"></div>
       </div>
-      <div className="flex mb-11  ">
-        <div className="w-[30%] max-w-[30%]   flex flex-col ">
+      <div className=" flex  ">
+        <div className="w-[30%] max-w-[30%] hidden  sm:block flex-col ">
           <div className="w-full bg-graySecondary border-r border-b px-5 border-white/15 py-2 flex items-center min-h-14  h-14 ">
             <span className="mx-auto text-lg font-semibold">University</span>
           </div>

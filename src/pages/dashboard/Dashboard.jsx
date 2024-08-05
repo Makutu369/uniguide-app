@@ -25,7 +25,7 @@ const Dashboard = () => {
           </span>
         </div>
 
-        <div className="flex gap-3">
+        <div className="hidden sm:block gap-3">
           <Navlinks route={"/user/universities"}>universities</Navlinks>
           <Navlinks route={"/tour"}>Take a tour</Navlinks>
           <Navlinks></Navlinks>
@@ -42,8 +42,8 @@ const Dashboard = () => {
         <div className="h-[40%] ">
           <Tracking></Tracking>
         </div>
-        <div className="flex w-full h-[50%] gap-x-5 justify-between px-5">
-          <div className="w-[30%]">
+        <div className="w-full flex flex-col lg:flex-row   h-[50%] gap-x-5 justify-between px-5">
+          <div className="w-[90%] lg:w-[30%]">
             <Pies />
           </div>
           <div className="w-[90%]">

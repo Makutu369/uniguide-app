@@ -2,6 +2,7 @@
 import Home from "./pages/Home/Home";
 import Algorithm from "./pages/mainSchools/components/Algorithm";
 import SchoolsPublic from "./pages/Schools/SchoolsPublic";
+import Test from "./components/Test";
 import Ai from "./pages/mainSchools/components/Ai";
 import Verified from "./pages/Verified/Verified";
 import Sign from "./pages/SignPage/Sign";
@@ -68,6 +69,7 @@ const router = createBrowserRouter([
       },
     ],
   },
+  { path: "/test", element: <Test /> },
   { path: "/faqs", element: <FAQPage /> },
   {
     path: "/tour",
