@@ -32,7 +32,7 @@ const Dashboard = () => {
         </div>
         <div className="gap-3 flex">
           <User />{" "}
-          <div className="hidden sm:block self-center grow h-11 rounded-xl w-14 border border-white/10 hover:border-white/15 justify-center items-center">
+          <div className="hidden sm:flex self-center grow h-11 rounded-xl w-14 border border-white/10 hover:border-white/15 justify-center items-center">
             <img className="h" src={notification} alt="" />
           </div>
         </div>

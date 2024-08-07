@@ -13,7 +13,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Findschools from "./pages/mainSchools/page";
 import "@radix-ui/themes/styles.css";
 import FAQPage from "./pages/Faq/faqPage";
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Link } from "react-router-dom";
 // const App = () => {
 //   return (
 //     <BrowserRouter>
@@ -37,11 +37,15 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-    // errorElement: (
-    //   <div className="w-full h-screen font-montserrat text-7xl font-bold flex justify-center items-center">
-    //     Page Not found 404
-    //   </div>
-    // ),
+    errorElement: (
+      <div className="w-full p-4 text-xl md:text-6xl flex-col h-screen font-montserrat gap-y-5  font-bold flex justify-center items-center">
+        <div className="flex gap-x-3">
+         <span className="text-red-400">{ 404 }</span>
+         <span>Page Not found</span>
+        </div>
+        <Link className="btn text-xs md:text-lg border rounded-full flex justify-center items-center text-sky-400 ">Back to home</Link>
+      </div>
+    ),
   },
   {
     path: "/dashboard",
