@@ -48,7 +48,7 @@ const UniList = () => {
               <DropdownMenu.Separator />
               <DropdownMenu.Item
                 onClick={() => {
-                  setArchive(university.school);
+                  setArchive(university);
                 }}
               >
                 Archive

@@ -25,7 +25,7 @@ const Dashboard = () => {
           </span>
         </div>
 
-        <div className="hidden sm:block gap-x-3">
+        <div className="hidden sm:flex gap-x-3">
           <Navlinks route={"/user/universities"}>universities</Navlinks>
           <Navlinks route={"/tour"}>Take a tour</Navlinks>
           <Navlinks></Navlinks>

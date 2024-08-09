@@ -49,9 +49,7 @@ const Algorithm = () => {
               value={percentage(Number(Details.grade), course.cutoff)}
             />
           </span>
-          <span>
-            {course.cutoff} sum : {sum}
-          </span>
+          <span>{course.cutoff}</span>
         </div>
       ))}
     </>

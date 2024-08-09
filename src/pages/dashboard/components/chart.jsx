@@ -1,13 +1,12 @@
 import { PureComponent } from "react";
-import { PieChart, Pie, Sector, ResponsiveContainer } from "recharts";
+import { PieChart, Cell, Pie, Sector, ResponsiveContainer } from "recharts";
 
 const data = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-  { name: "Group D", value: 200 },
+  { name: "Group A", value: 60 },
+  { name: "Group D", value: 40 },
 ];
-
+//colors for segmenatations
+const colors = ["#8884d8", "#82ca9d"];
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
   const {
@@ -67,7 +66,7 @@ const renderActiveShape = (props) => {
         y={ey}
         textAnchor={textAnchor}
         fill="#333"
-      >{`PV ${value}`}</text>
+      >{` ${value}`}</text>
       <text
         x={ex + (cos >= 0 ? 1 : -1) * 12}
         y={ey}
@@ -75,7 +74,7 @@ const renderActiveShape = (props) => {
         textAnchor={textAnchor}
         fill="#999"
       >
-        {`(Rate ${(percent * 100).toFixed(2)}%)`}
+        {`(value ${(percent * 100).toFixed(2)}%)`}
       </text>
     </g>
   );
@@ -107,10 +106,17 @@ export default class Pies extends PureComponent {
             cy="50%"
             innerRadius={60}
             outerRadius={80}
-            fill="#8884d8"
+            fill="#82ca9d"
             dataKey="value"
             onMouseEnter={this.onPieEnter}
-          />
+          >
+            {data.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={colors[index % colors.length]}
+              />
+            ))}
+          </Pie>
         </PieChart>
       </ResponsiveContainer>
     );

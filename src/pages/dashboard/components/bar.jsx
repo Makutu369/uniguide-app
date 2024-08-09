@@ -5,10 +5,39 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip,
+  Tooltip as RechartsTooltip,
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { useBar } from "../store/barData";
+import { useData } from "../store/userData";
+
+const bar = useBar.getState().bar;
+const details = useData.getState().Details;
+console.log(bar);
+
+const threshold = details.grade || 12;
+const renfined = bar.map(({ name, cutoff }) => ({
+  name,
+  cutoff,
+  grade: threshold,
+}));
+
+const filteredData = renfined.filter((item) => item.cutoff < threshold);
+
+const CustomTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    const { name, cutoff } = payload[0].payload; // Access name and cutoff from payload
+    return (
+      <div className="custom-tooltip bg-graySecondary text-white  p-2 shadow">
+        <p className="label">{`Name: ${name}`}</p>
+        <p className="intro">{`Cutoff: ${cutoff}`}</p>
+      </div>
+    );
+  }
+
+  return null;
+};
 
 const data = [
   {
@@ -55,16 +84,18 @@ const data = [
   },
 ];
 
-export default class Bars extends PureComponent {
-  static demoUrl = "https://codesandbox.io/p/sandbox/stacked-bar-chart-7fwfgj";
+const formatYAxisTicks = (tickItem) => {
+  return tickItem % 5 === 0 ? tickItem : ""; // Show only multiples of 5
+};
 
+export default class Bars extends PureComponent {
   render() {
     return (
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           width={500}
           height={300}
-          data={data}
+          data={filteredData}
           margin={{
             top: 20,
             right: 30,
@@ -74,11 +105,15 @@ export default class Bars extends PureComponent {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
+          <YAxis
+            domain={[0, 15]}
+            tickFormatter={formatYAxisTicks}
+            ticks={[0, 5, 10, 15]}
+          />
+
+          <RechartsTooltip content={<CustomTooltip />} />
           <Legend />
-          <Bar dataKey="pv" stackId="a" fill="#8884d8" />
-          <Bar dataKey="uv" stackId="a" fill="#82ca9d" />
+          <Bar dataKey="cutoff" fill="#8884d8" />
         </BarChart>
       </ResponsiveContainer>
     );

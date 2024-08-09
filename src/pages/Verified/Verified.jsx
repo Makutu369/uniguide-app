@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import Animation from "./components/animation";
+import { Link } from "react-router-dom";
 
 const Verified = () => {
   const location = useLocation();
@@ -32,18 +33,27 @@ const Verified = () => {
     })();
   }, [value]);
   return (
-    <div className="h-screen flex flex-col justify-center items-center w-full  text-[48px] font-boldm font-medium">
-      <span>{result}</span>
-      {isloading && (
-        <div className="flex flex-col justify-center items-centerborder-2 w-[40%] h-[60%]">
-          <div className="text-nowrap  self-center">
-            Verifying your account...
-          </div>
-          <div className="h-24 w-full">
-            <Animation />
-          </div>
-        </div>
-      )}
+    <div className="h-screen flex  justify-center items-center w-full  text-[48px] font-boldm font-medium">
+      <div className="flex flex-col gap-y-3 text-xl sm:text-3xl">
+        <span>{result}</span>
+        {result && (
+          <Link
+            to={"/"}
+            className="btn rounded-full w-[40%] border-white/10 shadow-md shadow-gray-500/5 border self-center font-montserrat"
+          >
+            login
+          </Link>
+        )}
+        {isloading && (
+          <>
+            {" "}
+            <div className="">Verifying your account...</div>
+            <div className="h-[10%] w-[30%]">
+              <Animation />
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };

@@ -10,7 +10,7 @@ const Form = () => {
   const navigate = useNavigate();
   const [isloading, setIsloading] = useState(false);
   const notifyUser = () =>
-    toast("user logged in successfully verify email and password");
+    toast("user registered sucessfully check your email for registration");
   const {
     formState: { errors },
     handleSubmit,
