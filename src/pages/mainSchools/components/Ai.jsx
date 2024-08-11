@@ -3,6 +3,7 @@ import gemini from "../../../assets/gemini.svg";
 import { useData } from "../../dashboard/store/userData";
 import { useState } from "react";
 import MarkdownPreview from "@uiw/react-markdown-preview";
+import { Skeleton } from "@nextui-org/react";
 
 // eslint-disable-next-line react/prop-types
 const MarkDown = ({ data }) => {
@@ -52,12 +53,13 @@ const Ai = () => {
               document.getElementById("my_modal_5").showModal();
               handlefetch(data);
             }}
+            className="cursor-pointer hover:bg-graySecondary rounded-full transition-colors border-white/5 hover:border p-1 "
           />
           <dialog
             id="my_modal_5"
             className="modal modal-bottom sm:modal-middle "
           >
-            <div className="modal-box  px-9 rounded-lg w-[90%]">
+            <div className="modal-box  text-white px-9 rounded-lg w-[90%]">
               {" "}
               <div className="modal-action">
                 <form method="dialog">
@@ -70,14 +72,26 @@ const Ai = () => {
                   </button>
                 </form>
               </div>
-              <h3 className="font-bold text-lg">Hello!</h3>
-              {!isLoading && <MarkDown data={result.result} />}
+              <h3 className="font-bold text-lg">
+                Getting information on {data.name}
+              </h3>
+              {!isLoading && (
+                <MarkDown
+                  data={result.result}
+                  wrapperElement={{ "data-color-mode": "light" }}
+                />
+              )}
               {isLoading && (
-                <div className="flex flex-col gap-3">
-                  <div className="skeleton w-[50%] h-6 "></div>
-                  <div className="skeleton w-[70%] h-6 "></div>
-                  <div className="skeleton w-[80%] h-6 "></div>
-                  <div className="skeleton w-[40%] h-6 "></div>
+                <div className="flex flex-col gap-3 rounded-lg p-3 border-white/5 border ">
+                  <Skeleton className="rounded-lg">
+                    <div className="w-[80%] h-6"></div>
+                  </Skeleton>{" "}
+                  <Skeleton className="rounded-lg">
+                    <div className="w-[80%] h-6"></div>
+                  </Skeleton>{" "}
+                  <Skeleton className="rounded-lg">
+                    <div className="w-[80%] h-6"></div>
+                  </Skeleton>
                 </div>
               )}
             </div>
