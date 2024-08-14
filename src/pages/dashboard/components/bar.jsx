@@ -9,19 +9,6 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { useBar } from "../store/barData";
-import { useData } from "../store/userData";
-
-const bar = useBar.getState().bar;
-const details = useData.getState().Details;
-console.log(bar);
-
-const threshold = details.grade || 12;
-const renfined = bar.map(({ name, cutoff }) => ({
-  name,
-  cutoff,
-  grade: threshold,
-}));
 
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {

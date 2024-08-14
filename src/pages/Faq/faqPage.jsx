@@ -12,17 +12,17 @@ const FAQPage = () => {
     setFaqList(faqs);
   }, []);
   return (
-    <div className="font-boldm w-full ">
+    <div className="font-boldm w-full flex flex-col gap-7 ">
       <div className="w-full h-14">
         <Navbar route={"/"}>
           <LoginBtn />
         </Navbar>
       </div>
-      <div className="mx-auto font-montserrat font-bold text-lg w-[60%] gap-2 mt-9  flex justify-center items-center flex-col">
-        <h2 className="flex flex-col justify-center items-center gap-2 w-full">
+      <div className="mx-auto font-montserrat font-bold text-xl w-[60%] gap-y-2  flex justify-center items-center flex-col">
+        <h2 className="flex flex-col justify-center items-center  w-full">
           {" "}
           <span className="">Need Assitance?</span>{" "}
-          <span className="text-base font-normal">
+          <span className="text-base font-normal text-white/50">
             Check out some Frequently Asked Questions!
           </span>
         </h2>
@@ -30,7 +30,11 @@ const FAQPage = () => {
       <div className="text-white/90 mx-auto sm:w-[70%] w-[90%] ">
         <Accordion selectionMode="multiple ">
           {faqList.map((faq, index) => (
-            <AccordionItem key={index} title={faq.question}>
+            <AccordionItem
+              key={index}
+              title={faq.question}
+              className="text-white/70"
+            >
               {faq.answer}
             </AccordionItem>
           ))}
