@@ -53,7 +53,7 @@ const Ai = () => {
               document.getElementById("my_modal_5").showModal();
               handlefetch(data);
             }}
-            className="cursor-pointer hover:bg-graySecondary rounded-full transition-colors border-white/5 hover:border p-1 "
+            className="cursor-pointer hover:bg-graySecondary rounded-full transition-colors border-white/5 hover:border p-1"
           />
           <dialog
             id="my_modal_5"
@@ -72,9 +72,7 @@ const Ai = () => {
                   </button>
                 </form>
               </div>
-              <h3 className="font-bold text-lg">
-                Getting information on {data.name}
-              </h3>
+              <h3 className="font-bold text-lg mb-3">Course Information</h3>
               {!isLoading && (
                 <MarkDown
                   data={result.result}

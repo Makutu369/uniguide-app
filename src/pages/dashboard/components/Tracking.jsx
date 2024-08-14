@@ -2,7 +2,7 @@ import { Link, ScrollArea, Separator } from "@radix-ui/themes";
 import Spaceship from "../animations/spaceship";
 import { useArchive } from "../../mainSchools/store/archived";
 import { useBar } from "../store/barData";
-const Tracking = () => {
+const Tracking = ({ grade }) => {
   const url = "https://uniguide-back.onrender.com";
   const archive = useArchive((state) => state.archive);
   const setBar = useBar((state) => state.setBars);
@@ -10,7 +10,7 @@ const Tracking = () => {
     try {
       const response = await fetch(`${url}/courses/${id}`);
       const data = await response.json();
-      setBar(data);
+      setBar(data, grade);
     } catch (error) {
       console.log("Error:", error);
     }

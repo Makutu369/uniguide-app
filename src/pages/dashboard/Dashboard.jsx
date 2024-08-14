@@ -7,7 +7,10 @@ import { useData } from "./store/userData";
 import { useEffect } from "react";
 import Pies from "./components/chart";
 import Bars from "./components/bar";
+import { useBar } from "./store/barData";
+
 const Dashboard = () => {
+  const bars = useBar((state) => state.bar);
   const { getDetails, Details } = useData();
   useEffect(() => {
     getDetails();
@@ -40,14 +43,14 @@ const Dashboard = () => {
 
       <div className="flex flex-col gap-y-20 h-[100%]">
         <div className="h-[40%] ">
-          <Tracking></Tracking>
+          <Tracking grade={Details.grade}></Tracking>
         </div>
         <div className="w-full flex flex-col lg:flex-row   h-[50%] gap-x-5 justify-between px-5">
           <div className="w-[90%] lg:w-[30%]">
             <Pies />
           </div>
           <div className="w-[90%]">
-            <Bars />
+            <Bars bars={bars} />
           </div>
           <div></div>
         </div>

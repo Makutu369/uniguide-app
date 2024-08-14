@@ -23,8 +23,6 @@ const renfined = bar.map(({ name, cutoff }) => ({
   grade: threshold,
 }));
 
-const filteredData = renfined.filter((item) => item.cutoff < threshold);
-
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     const { name, cutoff } = payload[0].payload; // Access name and cutoff from payload
@@ -90,12 +88,13 @@ const formatYAxisTicks = (tickItem) => {
 
 export default class Bars extends PureComponent {
   render() {
+    const bars = this.props.bars;
     return (
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           width={500}
           height={300}
-          data={filteredData}
+          data={bars}
           margin={{
             top: 20,
             right: 30,
