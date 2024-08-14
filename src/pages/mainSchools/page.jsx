@@ -22,7 +22,7 @@ const Findschools = () => {
             uniguide
           </span>
         </Link>
-        <div className="flex-auto">
+        <div className="flex-auto w-full md:w-auto">
           <input
             onChange={(e) => setSearchTerm(e.target.value)}
             type="text"

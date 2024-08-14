@@ -4,7 +4,7 @@ const Navlinks = ({ children, route }) => {
   return (
     <Link
       to={`${route}`}
-      className=" transition-colors text-white/50 hover:text-white/90 active:text-[#DFFF57]/20  rounded-lg  cursor-pointer"
+      className="hover:border-b-3 flex justify-center items-center w-28 border-white transition-colors duration-300 text-white/50 hover:text-white/90 active:text-white/20  h-14 cursor-pointer"
     >
       {children}
     </Link>

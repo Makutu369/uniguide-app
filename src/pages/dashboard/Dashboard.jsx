@@ -12,6 +12,18 @@ import { useBar } from "./store/barData";
 const Dashboard = () => {
   const bars = useBar((state) => state.bar);
   const { getDetails, Details } = useData();
+  //nav links
+  const links = [
+    {
+      name: "universities",
+      route: "/user/universities",
+    },
+    {
+      name: "tour",
+      route: "/tour",
+    },
+  ];
+
   useEffect(() => {
     getDetails();
   }, [getDetails]);
@@ -28,14 +40,16 @@ const Dashboard = () => {
           </span>
         </div>
 
-        <div className="hidden sm:flex gap-x-3">
-          <Navlinks route={"/user/universities"}>universities</Navlinks>
-          <Navlinks route={"/tour"}>Take a tour</Navlinks>
-          <Navlinks></Navlinks>
+        <div className="hidden sm:flex gap-x-3 ">
+          {links.map(({ name, route }, index) => (
+            <Navlinks route={route} key={index}>
+              {name}
+            </Navlinks>
+          ))}
         </div>
         <div className="gap-3 flex">
           <User />{" "}
-          <div className="hidden sm:flex self-center grow h-11 rounded-xl w-14 border border-white/10 hover:border-white/15 justify-center items-center">
+          <div className="hidden  self-center grow h-11 rounded-xl w-14 border border-white/10 hover:border-white/15 justify-center items-center">
             <img className="h" src={notification} alt="" />
           </div>
         </div>

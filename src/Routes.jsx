@@ -9,6 +9,7 @@ import Sign from "./pages/SignPage/Sign";
 import Tour from "./pages/Tour/Tour";
 import Reset from "./pages/reset-pass/Reset";
 import Details from "./pages/userDetails/Details";
+import { Account } from "./pages/account/account";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Findschools from "./pages/mainSchools/page";
 import "@radix-ui/themes/styles.css";
@@ -59,6 +60,7 @@ const router = createBrowserRouter([
   },
   { path: "/test", element: <Test /> },
   { path: "/faqs", element: <FAQPage /> },
+  { path: "/user/account", element: <Account /> },
   {
     path: "/tour",
     element: <Tour />,
