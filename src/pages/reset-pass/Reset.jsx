@@ -27,19 +27,19 @@ const Reset = () => {
   console.log(result);
   return (
     <div className="w-full font-boldm h-screen flex">
-      <div className="w-[50%] relative bg-mainbackground flex justify-center items-center">
+      <div className="w-[50%] hidden md:flex relative bg-mainbackground  justify-center items-center">
         <h3 className="absolute top-1 flex justify-center left-1 text-red-400">
-          <Link to={"/"} className="no-underline text-red-400">
+          <Link to={"/"} className="no-underline text-red-400 text-2xl">
             Uniguide
           </Link>
         </h3>
 
         <Animate />
       </div>
-      <div className="grow flex bg-graySecondary justify-center items-center  flex-col gap-y-14 p-2">
+      <div className="grow flex bg-graySecondary   flex-col gap-y-14 p-2 py-24">
         <div className="w-[90%] ">
           <div className="mx-auto flex flex-col">
-            <h2 className="self-center">Uniguide</h2>
+            <h2 className="self-center text-4xl">Uniguide</h2>
             <h3 className="self-center">Enter your password</h3>
           </div>
 

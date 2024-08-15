@@ -10,12 +10,12 @@ const User = () => {
     navigate("/");
   };
   return (
-    <div className="h-12 flex group justify-between items-center border-white/5 hover:border-white/15 transition-colors cursor-pointer border rounded-full px-2 py-1">
+    <div className="h-12 flex group justify-between items-center border-white/5 hover:border-white/15 transition-colors cursor-pointer border rounded-full px-1 py-1">
       <DropdownMenu.Root>
         <DropdownMenu.Trigger>
-          <div className="h-11 flex gap-x-3 text-sm  w-32 border-white/10 items-center">
+          <div className="h-11 flex gap-x-1 text-sm  w-32 border-white/10 items-center ">
             <Avatar fallback={"M"} radius="full" />
-            <div className="flex group-hover:text-white/90 transiton-colors flex-col justify-items-center text-white/60 font-montserrat">
+            <div className="flex font-semibold group-hover:text-white/90 transiton-colors flex-col justify-items-center text-white/60 ">
               <span>{Details.firstName}Makutu</span>
               <span>{Details.lastName}Bright</span>
             </div>

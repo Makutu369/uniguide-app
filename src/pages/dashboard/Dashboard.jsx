@@ -59,11 +59,11 @@ const Dashboard = () => {
         <div className="h-[40%] ">
           <Tracking grade={Details.grade}></Tracking>
         </div>
-        <div className="w-full flex flex-col lg:flex-row   h-[50%] gap-x-5 justify-between px-5">
+        <div className="w-full flex flex-col lg:flex-row h-[70%] lg:gap-x-5 lg:justify-between px-5">
           <div className="w-[90%] lg:w-[30%]">
             <Pies />
           </div>
-          <div className="w-[90%]">
+          <div className="w-[90%] ">
             <Bars bars={bars} />
           </div>
           <div></div>
