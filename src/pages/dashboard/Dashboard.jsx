@@ -18,6 +18,10 @@ const Dashboard = () => {
       name: "universities",
       route: "/user/universities",
     },
+    {
+      name: "tour",
+      route: "/tour",
+    },
   ];
 
   useEffect(() => {

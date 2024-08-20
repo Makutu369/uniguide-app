@@ -43,11 +43,11 @@ const TourPage = () => {
   return (
     <div className="tour-page font-boldm antialiased overflow-y-auto">
       <div className="tour-content">
-        <div className="flex flex-col border-b border-black/30 font-montserrat text-xl gap-y-1 mb-5 text-black  w-full">
-          <h1 className="mx-auto text-2xl font-bold ">
+        <div className="flex flex-col border-b border-black/30 text font-montserrat text-base gap-y-1 mb-5 text-black  w-full">
+          <h1 className="mx-auto text-2xl md:text-4xl font-bold ">
             Lets go on a virtual tour to the various universities
           </h1>
-          <h2 className="mx-auto">
+          <h2 className="mx-auto text-black/50">
             (Follow the link below to watch more videos and know more about your
             preferred university)
           </h2>

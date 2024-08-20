@@ -33,7 +33,7 @@ const Findschools = () => {
             className="input h-11  focus:border-primary border-2 rounded-full w-full"
           />
         </div>
-        <div className="">
+        <div className="hidden md:block">
           <User />
         </div>
       </div>
