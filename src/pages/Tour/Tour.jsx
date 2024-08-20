@@ -1,66 +1,70 @@
-const Tour = () => {
+import { useState } from "react";
+import { UniversitySelector } from "./UniversitySelector";
+import Slideshow from "../../components/Slideshow";
+import universities from "../../assets/universities.json";
+import "./Tour.css";
+
+const TourPage = () => {
+  const [selectedUniversity, setSelectedUniversity] = useState({
+    images: universities.knust.images,
+    videoUrl: universities.knust.videoUrl,
+  });
+
+  const handleUniversitySelect = (university) => {
+    setSelectedUniversity({
+      images: university.images,
+      videoUrl: university.videoUrl,
+    });
+  };
+
+  const universityList = [
+    {
+      name: "KNUST",
+      images: universities.knust.images,
+      videoUrl: universities.knust.videoUrl,
+    },
+    {
+      name: "Legon",
+      images: universities.legon.images,
+      videoUrl: universities.legon.videoUrl,
+    },
+    {
+      name: "UCC",
+      images: universities.ucc.images,
+      videoUrl: universities.ucc.videoUrl,
+    },
+    {
+      name: "More",
+      images: universities.more.images,
+      videoUrl: universities.more.videoUrl,
+    },
+  ];
+
   return (
-    <div className="w-full h-screen">
-      <div className="carousel w-full">
-        <div id="slide1" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
-            className="w-full"
-          />
-          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <a href="#slide4" className="btn btn-circle">
-              ❮
-            </a>
-            <a href="#slide2" className="btn btn-circle">
-              ❯
-            </a>
-          </div>
-        </div>
-        <div id="slide2" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
-            className="w-full"
-          />
-          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <a href="#slide1" className="btn btn-circle">
-              ❮
-            </a>
-            <a href="#slide3" className="btn btn-circle">
-              ❯
-            </a>
-          </div>
-        </div>
-        <div id="slide3" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
-            className="w-full"
-          />
-          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <a href="#slide2" className="btn btn-circle">
-              ❮
-            </a>
-            <a href="#slide4" className="btn btn-circle">
-              ❯
-            </a>
-          </div>
-        </div>
-        <div id="slide4" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
-            className="w-full"
-          />
-          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <a href="#slide3" className="btn btn-circle">
-              ❮
-            </a>
-            <a href="#slide1" className="btn btn-circle">
-              ❯
-            </a>
-          </div>
+    <div className="tour-page">
+      <div className="tour-content">
+        <h1>Lets go on a virtual tour to the various universities</h1>
+        <h2>
+          (Follow the link below to watch more videos and know more about your
+          preferred university)
+        </h2>
+        <UniversitySelector
+          universities={universityList}
+          onSelect={handleUniversitySelect}
+        />
+        <Slideshow images={selectedUniversity.images} interval={5000} />
+        <div className="video-link">
+          <a
+            href={selectedUniversity.videoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Watch Campus Tour Video
+          </a>
         </div>
       </div>
     </div>
   );
 };
 
-export default Tour;
+export default TourPage;
