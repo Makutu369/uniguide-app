@@ -19,7 +19,7 @@ const Tracking = ({ grade }) => {
   return (
     <div className="px-6 sm:px-16  h-full mt-6">
       <div className="flex flex-col gap-y-4 ">
-        <div className="flex  text-base justify-between">
+        <div className="flex text-base h-[20%] justify-between">
           <span>Tracking school list</span>
           <Link
             to={"/user/universities"}
@@ -28,7 +28,7 @@ const Tracking = ({ grade }) => {
             view schools
           </Link>
         </div>
-        <div className=" rounded-t-lg flex flex-col text-base h-full">
+        <div className=" rounded-t-lg flex flex-col text-base h-[300px] flex-auto">
           <div className=" bg-[#1F1F1F] rounded-t-lg pr-3 text-white font-semibold items-center h-14 w-full flex justify-between px-5">
             <span className="w-[20%]">university</span>
             <Separator className="" orientation={"vertical"} size={3} />
@@ -54,6 +54,9 @@ const Tracking = ({ grade }) => {
                 onClick={() => getCourseData(university._id)}
               >
                 <div className="w-[20%]">{university.school}</div>
+                <Link to={"/"} className="hover:text-[#4549F0]/50">
+                  Acommodation
+                </Link>
                 <div>{university.region}</div>
               </div>
             ))}

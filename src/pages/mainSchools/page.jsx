@@ -6,14 +6,16 @@ import { Link } from "react-router-dom";
 import { useSearch } from "./store/searchTerm";
 import CourseList from "./components/CourseList";
 import logo from "../../assets/logo1.svg";
+import User from "../../components/User";
 // import PieBasic from "./components/pie";
 const Findschools = () => {
   const navigate = useNavigate();
   const setSearchTerm = useSearch((state) => state.setSearchTerm);
   const searchTerm = useSearch((state) => state.searchTerm);
+
   return (
     <div className="text-white/80 text-white font-boldm antialiased bg-mainbackground flex flex-col  w-full">
-      <div className="h-16 w-full border-b border-white/15 flex px-5 items-center justify-between gap-x-5">
+      <div className="h-16 w-full border-b border-white/15 flex px-5 items-center justify-between gap-x-11">
         <Link to={`/dashboard`} className="flex gap-x-3 no-underline w-[30%]">
           <div className="w-8 h-8 flex items-center justify-normal">
             <img src={logo} alt="" />
@@ -22,16 +24,18 @@ const Findschools = () => {
             uniguide
           </span>
         </Link>
-        <div className="flex-auto w-full md:w-auto">
+        <div className="flex-auto w-full md:w-[40%]">
           <input
             onChange={(e) => setSearchTerm(e.target.value)}
             type="text"
             value={searchTerm}
             placeholder="search universities"
-            className="input h-11 input-bordered rounded-full w-full"
+            className="input h-11  focus:border-primary border-2 rounded-full w-full"
           />
         </div>
-        <div className="w-[40%]"></div>
+        <div className="">
+          <User />
+        </div>
       </div>
       <div className=" flex  ">
         <div className="w-[30%] max-w-[30%] hidden  sm:block flex-col ">

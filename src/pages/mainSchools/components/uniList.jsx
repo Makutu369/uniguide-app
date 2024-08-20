@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import { useUniversities } from "../../../../store/sch_store";
 import moreButton from "../../../assets/more.svg";
 import link from "../../../assets/link.svg";
+import { useSearch } from "../store/searchTerm";
 import { DropdownMenu } from "@radix-ui/themes";
 import { useCourse } from "../store/courses";
 import { useArchive } from "../store/archived";
 
 const UniList = () => {
-  const universities = useUniversities((state) => state.schools);
   const setUniversities = useUniversities((state) => state.setSchools);
   const isLoading = useUniversities((state) => state.isLoading);
   const setArchive = useArchive((state) => state.setArchive);
@@ -15,12 +15,19 @@ const UniList = () => {
     setUniversities();
   }, [setUniversities]);
 
+  const universities = useUniversities((state) => state.schools);
+  const searchTerm = useSearch((state) => state.searchTerm);
+
   const getCourseId = useCourse((state) => state.getCourseId);
   const fetchCourse = useCourse((state) => state.fetchCourse);
 
+  const unifilter = universities.filter((university) =>
+    university.school.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <>
-      {universities.map((university) => (
+      {unifilter.map((university) => (
         <div
           key={university._id}
           className=" flex cursor-pointer border-b py-9 justify-between border-white/5 items-center px-5 h-11 hover:bg-graySecondary transition-all focus:bg-white/15"

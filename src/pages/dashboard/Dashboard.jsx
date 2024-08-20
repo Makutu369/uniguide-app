@@ -1,5 +1,5 @@
-import User from "./components/User";
 import logo from "../../assets/logo1.svg";
+import User from "../../components/User";
 import notification from "../../assets/notification-icon.svg";
 import Navlinks from "./components/navlinks";
 import Tracking from "./components/Tracking";
@@ -17,10 +17,6 @@ const Dashboard = () => {
     {
       name: "universities",
       route: "/user/universities",
-    },
-    {
-      name: "tour",
-      route: "/tour",
     },
   ];
 
@@ -59,7 +55,7 @@ const Dashboard = () => {
         <div className="h-[40%] ">
           <Tracking grade={Details.grade}></Tracking>
         </div>
-        <div className="w-full flex flex-col lg:flex-row h-[70%] lg:gap-x-5 lg:justify-between px-5">
+        <div className="w-full flex flex-col lg:flex-row h-[50%] lg:gap-x-5 lg:justify-between px-5">
           <div className="w-[90%] lg:w-[30%]">
             <Pies />
           </div>

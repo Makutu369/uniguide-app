@@ -1,5 +1,5 @@
 import { DropdownMenu, Avatar } from "@radix-ui/themes";
-import { useData } from "../store/userData";
+import { useData } from "../pages/dashboard/store/userData";
 import { Link, useNavigate } from "react-router-dom";
 const User = () => {
   const navigate = useNavigate();
@@ -9,15 +9,16 @@ const User = () => {
     localStorage.removeItem("token");
     navigate("/");
   };
+  const lastname = String(Details.lastName);
   return (
     <div className="h-12 flex group justify-between items-center border-white/5 hover:border-white/15 transition-colors cursor-pointer border rounded-full px-1 py-1">
       <DropdownMenu.Root>
         <DropdownMenu.Trigger>
           <div className="h-11 flex gap-x-1 text-sm  w-32 border-white/10 items-center ">
-            <Avatar fallback={"M"} radius="full" />
+            <Avatar fallback={lastname.charAt(0)} radius="full" />
             <div className="flex font-semibold group-hover:text-white/90 transiton-colors flex-col justify-items-center text-white/60 ">
-              <span>{Details.firstName}Makutu</span>
-              <span>{Details.lastName}Bright</span>
+              <span>{Details.firstName}</span>
+              <span>{Details.lastName}</span>
             </div>
           </div>
         </DropdownMenu.Trigger>
