@@ -1,0 +1,49 @@
+{
+  "knust": {
+    "images": [
+      "/src/assets/tour-assets/knust1.jpg",
+      "/src/assets/tour-assets/knust2.jpeg",
+      "/src/assets/tour-assets/knust3.jpg",
+      "/src/assets/tour-assets/knust4.jpeg",
+      "/src/assets/tour-assets/knust5.jpeg",
+      "/src/assets/tour-assets/knust6.jpg",
+      "/src/assets/tour-assets/knust7.jpg"
+    ],
+    "videoUrl": "https://youtu.be/QixAdne1y3Y"
+    
+  },
+  "legon": {
+    "images": [
+      "/src/assets/tour-assets/legon1.jpg",
+      "/src/assets/tour-assets/legon2.jpg",
+      "/src/assets/tour-assets/legon3.jpg",
+      "/src/assets/tour-assets/legon4.jpeg",
+      "/src/assets/tour-assets/legon5.jpg",
+      "/src/assets/tour-assets/legon6.jpg"
+    ],
+    "videoUrl": "https://youtu.be/nDQ52NYTZkU"
+  },
+  "ucc": {
+    "images": [
+      "/src/assets/tour-assets/ucc1.jpg",
+      "/src/assets/tour-assets/ucc2.jpg",
+      "/src/assets/tour-assets/ucc3.jpeg",
+      "/src/assets/tour-assets/ucc4.jpg",
+      "/src/assets/tour-assets/ucc5.jpg",
+      "/src/assets/tour-assets/ucc6.jpg"
+    ],
+    "videoUrl": "https://youtu.be/nt76rj4ZsDg"
+  },
+
+  "more": {
+    "images": [
+      "/src/assets/tour-assets/uew5.jpeg",
+      "/src/assets/tour-assets/uew3.jpeg",
+      "/src/assets/tour-assets/uhas1.jpeg",
+      "/src/assets/tour-assets/uhas3.jpg",
+      "/src/assets/tour-assets/uds1.jpeg",
+      "/src/assets/tour-assets/uds2.jpeg"
+    ],
+    "videoUrl": "https://youtu.be/-sVYlo1VpVw"
+  }
+}

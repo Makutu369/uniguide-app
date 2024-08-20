@@ -1,0 +1,21 @@
+.university-selector {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.university-selector button {
+  margin: 0 10px;
+  width: 100px;
+  padding: 10px 20px;
+  background-color: #8884D8;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.university-selector button:hover {
+  background-color: #74bf23;
+}

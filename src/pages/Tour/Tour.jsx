@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { UniversitySelector } from "./UniversitySelector";
-import Slideshow from "../../components/Slideshow";
-import universities from "../../assets/universities.json";
+import Slideshow from "./SlideShow";
+import universities from "../../assets/university.json";
 import "./Tour.css";
 
 const TourPage = () => {
@@ -41,23 +41,28 @@ const TourPage = () => {
   ];
 
   return (
-    <div className="tour-page">
+    <div className="tour-page font-boldm antialiased overflow-y-auto">
       <div className="tour-content">
-        <h1>Lets go on a virtual tour to the various universities</h1>
-        <h2>
-          (Follow the link below to watch more videos and know more about your
-          preferred university)
-        </h2>
+        <div className="flex flex-col border-b border-black/30 font-montserrat text-xl gap-y-1 mb-5 text-black  w-full">
+          <h1 className="mx-auto text-2xl font-bold ">
+            Lets go on a virtual tour to the various universities
+          </h1>
+          <h2 className="mx-auto">
+            (Follow the link below to watch more videos and know more about your
+            preferred university)
+          </h2>
+        </div>
         <UniversitySelector
           universities={universityList}
           onSelect={handleUniversitySelect}
         />
         <Slideshow images={selectedUniversity.images} interval={5000} />
-        <div className="video-link">
+        <div className="video-link ">
           <a
             href={selectedUniversity.videoUrl}
             target="_blank"
             rel="noopener noreferrer"
+            className="rounded-full btn "
           >
             Watch Campus Tour Video
           </a>
