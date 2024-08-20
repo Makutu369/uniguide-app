@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { UniversitySelector } from "./UniversitySelector";
+import Slider from "react-slick";
+import { Link } from "react-router-dom";
 import Slideshow from "./SlideShow";
-import universities from "../../assets/university.json";
+import universities from "./../../assets/universities.json";
 import tour from "./tour.module.css";
 
 const TourPage = () => {
@@ -39,36 +41,53 @@ const TourPage = () => {
       videoUrl: universities.more.videoUrl,
     },
   ];
+  const SimpleSlider = ({ images }) => {
+    var settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+    };
+    return (
+      <Slider {...settings} className="text-7xl text-black mx-auto px-9 mb-9">
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className="w-full h-[80%] border border-white/20 rounded-lg p-3 bg-graySecondary "
+          >
+            <img
+              src={image}
+              alt=""
+              className="w-full h-[500px] object- rounded-lg"
+            />
+          </div>
+        ))}
+      </Slider>
+    );
+  };
 
   return (
-    <div
-      className={`tour-page font-boldm antialiased overflow-y-auto ${tour.tourPage}`}
-    >
-      <div className={tour.tourContent}>
-        <div className="flex flex-col border-b border-black/30 text font-montserrat text-base gap-y-1 mb-5 text-black  w-full">
-          <h1 className="mx-auto text-2xl md:text-4xl font-bold ">
-            Lets go on a virtual tour to the various universities
-          </h1>
-          <h2 className="mx-auto text-black/50">
-            (Follow the link below to watch more videos and know more about your
-            preferred university)
-          </h2>
-        </div>
-        <UniversitySelector
-          universities={universityList}
-          onSelect={handleUniversitySelect}
-        />
-        <Slideshow images={selectedUniversity.images} interval={5000} />
-        <div className={tour.videoLink}>
-          <a
-            href={selectedUniversity.videoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full btn "
-          >
-            Watch Campus Tour Video
-          </a>
-        </div>
+    <div className="w-full overflow-y-auto h-screen font-boldm text-black  bg-mainbackground px-9">
+      <div className="text-3xl text-white flex flex-col mx-auto border-b border-white/15 mb-9">
+        <span className="mx-auto">A Tour of Schools in Ghana</span>
+        <span className="mx-auto">
+          Below are some videos of schools in Ghana
+        </span>
+      </div>
+      <UniversitySelector
+        universities={universityList}
+        onSelect={handleUniversitySelect}
+      />
+      <SimpleSlider images={selectedUniversity.images} />
+      <div className="mx-auto w-32 border border-black rounded-lg">
+        <a
+          href={selectedUniversity.videoUrl}
+          className="btn w-full bg-primary/15 rounded-lg"
+        >
+          hello
+        </a>
       </div>
     </div>
   );
