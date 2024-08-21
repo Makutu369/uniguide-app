@@ -1,6 +1,7 @@
 import { ScrollArea, Separator } from "@radix-ui/themes";
 import { Link } from "react-router-dom";
 import Spaceship from "../animations/spaceship";
+import external_link from "./../../../assets/external_link.svg";
 import { useArchive } from "../../mainSchools/store/archived";
 import { useBar } from "../store/barData";
 const Tracking = ({ grade }) => {
@@ -54,8 +55,18 @@ const Tracking = ({ grade }) => {
                 onClick={() => getCourseData(university._id)}
               >
                 <div className="w-[20%]">{university.school}</div>
-                <Link to={"/"} className="hover:text-[#4549F0]/50">
-                  Acommodation
+                <Link
+                  to={`/acommodation?search=${university.school}`}
+                  className=" transition-colors group text-white/80 hover:text-white px-5 w-[20%] h-full flex justify-center items-center"
+                >
+                  <span className="group-hover:hidden text-white/40">
+                    acommodation
+                  </span>
+                  <img
+                    src={external_link}
+                    alt={"external_link"}
+                    className="hidden group-hover:block"
+                  />
                 </Link>
                 <div>{university.region}</div>
               </div>

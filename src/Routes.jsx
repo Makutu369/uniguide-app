@@ -1,6 +1,7 @@
 // import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Algorithm from "./pages/mainSchools/components/Algorithm";
+import Acommodation from "./pages/accomodation/Acommodation";
 import SchoolsPublic from "./pages/Schools/SchoolsPublic";
 import Test from "./components/Test";
 import Ai from "./pages/mainSchools/components/Ai";
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
   { path: "/test", element: <Test /> },
   { path: "/faqs", element: <FAQPage /> },
   { path: "/user/account", element: <Account /> },
+  {
+    path: "/acommodation",
+    element: <Acommodation />,
+  },
   {
     path: "/tour",
     element: <Tour />,
