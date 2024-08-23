@@ -9,7 +9,9 @@ const Map = ({ value }) => {
         loading="lazy"
         allowfullscreen
         referrerpolicy="no-referrer-when-downgrade"
-        src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBqvnRIoF8BXXdOv6lghgfNQCEIENtaFHE&q=${changedValue}`}
+        src={`https://www.google.com/maps/embed/v1/place?key=${
+          import.meta.env.VITE_GOOGLE_KEY
+        }&q=${changedValue}`}
       ></iframe>
     </div>
   );

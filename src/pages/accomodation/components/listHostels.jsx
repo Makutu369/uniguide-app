@@ -16,7 +16,7 @@ const HostelsList = ({ data }) => {
           title={
             <div className="flex justify-between">
               <span>{item.name}</span>
-              <div className="flex gap-x-2">
+              <div className="flex gap-x-2 flex-wrap">
                 {item.tags.map((chip, index) => (
                   <Chip key={index} variant="dot">
                     {chip}
