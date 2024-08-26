@@ -62,16 +62,16 @@ const Acommodation = () => {
         {" "}
         <div className="w-full flex justify-between items-center">
           <div className="w-[70%]">
-            <span className="font-montserrat font-semibold py-2">{value}</span>
+            <span className="font-montserrat font-semibold ">{value}</span>
             <input
               type="text "
-              className="md:w-full bg-gray-200 dark:bg-graySecondary border-primary sticky top-3 z-30 h-14 dark:text-white text-black self-center px-7 input dark:border-white/20 bg-graySecondary/50 o backdrop-blur-md rounded-full block grow "
+              className="md:w-full bg-gray-200 mt-4 dark:bg-graySecondary border-primary sticky top-3 z-30 h-14 dark:text-white text-black self-center px-7 input dark:border-white/20 bg-graySecondary/50 o backdrop-blur-md rounded-full block grow "
               onChange={handleChange}
               value={searchTerm}
               placeholder="search acommodation"
             />{" "}
           </div>
-          <div className="w-32 h-32 border border-black/20 dark:border-white/20 rounded-lg bg-primary/70 dark:bg-primary/15">
+          <div className="w-32 h-32 border border-black/20 dark:border-white/20 rounded-full bg-primary/70 dark:bg-primary/15">
             <Animate />
           </div>
         </div>

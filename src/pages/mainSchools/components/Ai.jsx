@@ -20,10 +20,10 @@ const Ai = () => {
     try {
       setisLoading(true);
       const response = await fetch(
-        "https://uniguide-back.onrender.com/chat/detail",
+        "https://uniguide-back.onrender.com/chat/gemini",
         {
           method: "POST",
-          body: JSON.stringify({ role: "user", message }),
+          body: JSON.stringify({ message }),
           headers: { "Content-Type": "application/json" },
         }
       );
