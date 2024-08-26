@@ -29,8 +29,8 @@ const Dashboard = () => {
   }, [getDetails]);
   console.log(Details);
   return (
-    <main className="font-boldm bg-[#121212] antialiased w-full h-screen text-base overflow-auto text-white/80">
-      <div className="w-full border-b border-white/15 px-6 md:px-16  flex text-lg items-center justify-between h-14">
+    <main className="font-boldm dark:bg-[#121212] bg-white text-black  antialiased w-full h-screen text-base overflow-auto dark:text-white/80">
+      <div className="w-full border-b dark:border-white/15 px-6 md:px-16  border-black/15 flex text-lg items-center justify-between h-14">
         <div className="flex gap-x-3">
           <div className="h-8 w-8 flex items-center justify-center">
             <img src={logo} alt="" />

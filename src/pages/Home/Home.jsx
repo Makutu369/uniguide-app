@@ -32,10 +32,7 @@ const Home = () => {
               non ipsum ex voluptate voluptatum commodi quidem asperiores soluta
               rem similique!
             </span>
-            <PrimaryButton
-              input={"search Universities"}
-              route={"universities"}
-            />
+            <PrimaryButton input={"Join"} route={"register"} />
           </div>
           <div className="absolute h-96 z-10 right-6 top-0 hidden md:block">
             <Hero />

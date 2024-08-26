@@ -29,9 +29,9 @@ const Algorithm = () => {
       {course.map((course) => (
         <div
           key={course._id}
-          className="w-full px-6 h-14 gap-y-9 border-b border-white/5 flex items-center justify-between"
+          className="w-full px-6 h-14 gap-y-9 border-b dark:border-white/5 border-black/5 flex items-center justify-between"
         >
-          <div className="w-[40%] border-r flex gap-x-3 cursor-pointer items-center border-white/5 ">
+          <div className="w-[40%] border-r flex gap-x-3 cursor-pointer items-center border-black/15 dark:border-white/5 ">
             <span>{course.name}</span>
           </div>
           <span className="w-28">
@@ -41,7 +41,7 @@ const Algorithm = () => {
               value={percentage(Number(Details.grade), course.cutoff)}
             />
           </span>
-          <span>{course.cutoff}</span>
+          <span>{Number(course.cutoff)}</span>
         </div>
       ))}
     </>

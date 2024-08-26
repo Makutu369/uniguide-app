@@ -1,7 +1,7 @@
 const Map = ({ value }) => {
   const changedValue = value.split(" ").join("+");
   return (
-    <div className="h-56 w-96  p-1 border border-white/15 bg-graySecondary rounded-lg ">
+    <div className="h-72 md:w-[70%] w-[90%] mx-auto sm:mx-0 p-1 border-black/15 border dark:border-white/15 dark:bg-graySecondary rounded-lg ">
       <iframe
         className="rounded-lg"
         width="100%"

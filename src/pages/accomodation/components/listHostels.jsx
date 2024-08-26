@@ -5,29 +5,38 @@ import Map from "../Map";
 import ListData from "./dataList";
 
 const HostelsList = ({ data }) => {
-  data.shift();
   console.log(data);
   return (
     <Accordion>
       {data.map((item, index) => (
         <AccordionItem
-          className=""
+          className=" border-b border-black/20 dark:border-white/15"
           key={index}
           title={
             <div className="flex justify-between">
-              <span>{item.name}</span>
+              <span className="text-black dark:text-white/70  font-semibold">
+                {item.name}
+              </span>
               <div className="flex gap-x-2 flex-wrap">
-                {item.tags.map((chip, index) => (
-                  <Chip key={index} variant="dot">
-                    {chip}
-                  </Chip>
-                ))}
+                {item.tags.map((chip, index) => {
+                  if (index > 2) return;
+                  return (
+                    <Chip
+                      className="dark:text-white text-black/70"
+                      key={index}
+                      variant="dot"
+                      color="primary"
+                    >
+                      {chip}
+                    </Chip>
+                  );
+                })}
               </div>
             </div>
           }
           subtitle={""}
         >
-          <div className="flex w-full justify-between">
+          <div className="flex   flex-col w-full md:flex-row  justify-between gap-y-2">
             <ListData data={item} />
             <Map value={item.name} />
           </div>

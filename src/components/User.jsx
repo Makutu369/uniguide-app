@@ -11,12 +11,12 @@ const User = () => {
   };
   const lastname = String(Details.lastName);
   return (
-    <div className="h-12 flex group justify-between items-center border-white/5 hover:border-white/15 transition-colors cursor-pointer border rounded-full px-1 py-1">
+    <div className="h-12 flex group justify-between items-center text-black/60 dark:border-white/15 border-black/15 dark:hover:border-white/25 hover:border-black/15 transition-colors cursor-pointer border rounded-full px-1 py-1">
       <DropdownMenu.Root>
         <DropdownMenu.Trigger>
           <div className="h-11 flex gap-x-1 text-sm  w-32 border-white/10 items-center ">
             <Avatar fallback={lastname.charAt(0)} radius="full" />
-            <div className="flex font-semibold group-hover:text-white/90 transiton-colors flex-col justify-items-center text-white/60 ">
+            <div className="flex font-semibold dark:group-hover:text-white/90 group-hover:text-black/90 transiton-colors flex-col justify-items-center  dark:text-white/60 ">
               <span>{Details.firstName}</span>
               <span>{Details.lastName}</span>
             </div>

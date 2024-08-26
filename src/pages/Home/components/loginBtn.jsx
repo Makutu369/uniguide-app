@@ -53,6 +53,11 @@ const LoginBtn = () => {
         localStorage.setItem("token", token);
         await delay(2000);
         navigate("/user/info");
+        if (data.isDetails === true) {
+          navigate("/dashboard");
+        } else {
+          navigate("/user/info");
+        }
         console.log(data);
       }
       console.log(data);

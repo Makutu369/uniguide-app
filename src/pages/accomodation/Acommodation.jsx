@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import { Skeleton } from "@nextui-org/react";
 import { useLocation } from "react-router-dom";
 import HostelsList from "./components/listHostels";
+import User from "../../components/User";
+import Animate from "./animation/location";
 const Acommodation = () => {
   const location = useLocation();
   const queryparam = new URLSearchParams(location.search);
@@ -11,6 +13,7 @@ const Acommodation = () => {
   const [data, setData] = useState([]);
   const [isloading, setIsloading] = useState(false);
   const body = { query: `hostels and hotels in ${value}` };
+  const [searchTerm, setSearchTerm] = useState("");
   useEffect(() => {
     // fetch data with value
     const fetchRequest = async () => {
@@ -39,12 +42,39 @@ const Acommodation = () => {
     };
     fetchRequest();
   }, []);
+
+  const handleChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+  data.shift();
+  const searched = data.filter((datas) =>
+    datas.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   const randData = [1, 2, 4, 5, 6, 3, 34, 3, 53, 2, 32, 23232];
   return (
-    <div className="h-screen w-full font-boldm ">
-      <Navbar />
-      {/* <Map value={""} /> */}
-      <div className="px-28">
+    <div className="h-screen w-full font-boldm  relative ">
+      <Navbar route={"/dashboard"} tour={"hidden"}>
+        <User />
+      </Navbar>
+      {/* <Map value={""} /> */}{" "}
+      <div className="lg:px-28 text-black dark:text-white md:px-14 px-3 flex bg-white dark:bg-graySecondary flex-col gap-y-14 pt-5 ">
+        {" "}
+        <div className="w-full flex justify-between items-center">
+          <div className="w-[70%]">
+            <span className="font-montserrat font-semibold py-2">{value}</span>
+            <input
+              type="text "
+              className="md:w-full bg-gray-200 dark:bg-graySecondary border-primary sticky top-3 z-30 h-14 dark:text-white text-black self-center px-7 input dark:border-white/20 bg-graySecondary/50 o backdrop-blur-md rounded-full block grow "
+              onChange={handleChange}
+              value={searchTerm}
+              placeholder="search acommodation"
+            />{" "}
+          </div>
+          <div className="w-32 h-32 border border-black/20 dark:border-white/20 rounded-lg bg-primary/70 dark:bg-primary/15">
+            <Animate />
+          </div>
+        </div>
         {isloading &&
           randData.map((data, index) => (
             <div
@@ -53,7 +83,7 @@ const Acommodation = () => {
             >
               <div className="w-full flex flex-col gap-2">
                 <Skeleton className="h-7 w-4/5 rounded-lg" />
-                <Skeleton className="h-7 w-3/5 rounded-lg" />
+                <Skeleton className="h-7 w-3/5 rounded-lg " />
                 <Skeleton className="h-7 w-2/5 rounded-lg" />
                 <Skeleton className="h-7 w-2/5 rounded-lg" />
               </div>
@@ -62,7 +92,7 @@ const Acommodation = () => {
               </div>
             </div>
           ))}
-        <HostelsList data={data} />
+        <HostelsList data={searched} />
       </div>
     </div>
   );

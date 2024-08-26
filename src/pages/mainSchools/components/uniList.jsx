@@ -6,6 +6,7 @@ import { useSearch } from "../store/searchTerm";
 import { DropdownMenu } from "@radix-ui/themes";
 import { useCourse } from "../store/courses";
 import { useArchive } from "../store/archived";
+import { Skeleton } from "@nextui-org/react";
 
 const UniList = () => {
   const setUniversities = useUniversities((state) => state.setSchools);
@@ -30,14 +31,14 @@ const UniList = () => {
       {unifilter.map((university) => (
         <div
           key={university._id}
-          className=" flex cursor-pointer border-b py-9 justify-between border-white/5 items-center px-5 h-11 hover:bg-graySecondary transition-all focus:bg-white/15"
+          className=" flex cursor-pointer border-b py-9 justify-between dark:border-white/5 items-center px-5 h-11 hover:bg-primary/15 dark:hover:bg-graySecondary transition-all focus:bg-white/15"
           onClick={() => {
             getCourseId(university._id);
             fetchCourse();
           }}
         >
+          {isLoading && <Skeleton className="w-full h-11"></Skeleton>}
           <span>{university.school}</span>
-          {isLoading && <div className="skeleton h-11 w-[70%]"></div>}
           <DropdownMenu.Root>
             <DropdownMenu.Trigger>
               <div className="w-4 h-2">
@@ -45,14 +46,6 @@ const UniList = () => {
               </div>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
-              <DropdownMenu.Item>Favorite </DropdownMenu.Item>
-              <DropdownMenu.Item className="flex justify-between">
-                <span>Tour</span>
-                <span className="w-4 h-4">
-                  <img src={link} alt="" />
-                </span>{" "}
-              </DropdownMenu.Item>
-              <DropdownMenu.Separator />
               <DropdownMenu.Item
                 onClick={() => {
                   setArchive(university);

@@ -41,7 +41,7 @@ const Verified = () => {
             to={"/"}
             className="btn rounded-full w-[40%] border-white/10 shadow-md shadow-gray-500/5 border self-center font-montserrat"
           >
-            login
+            back to home
           </Link>
         )}
         {isloading && (

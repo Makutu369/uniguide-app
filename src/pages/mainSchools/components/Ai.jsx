@@ -42,7 +42,7 @@ const Ai = () => {
     <>
       {course.map((data) => (
         <div
-          className="py-2 border-b justify-between border-white/5 px-4 h-14 flex items-center"
+          className="py-2 border-b justify-between border-black/5 dark:border-white/5 px-4 h-14 flex items-center"
           key={data._id}
         >
           <span className="w-[40%]">{data.name}</span>
@@ -53,13 +53,13 @@ const Ai = () => {
               document.getElementById("my_modal_5").showModal();
               handlefetch(data);
             }}
-            className="cursor-pointer hover:bg-graySecondary rounded-full transition-colors border-white/5 hover:border p-1"
+            className="cursor-pointer hover:bg-primary/15 dark:hover:bg-graySecondary rounded-full transition-colors border-white/5 hover:border p-1"
           />
           <dialog
             id="my_modal_5"
             className="modal modal-bottom sm:modal-middle "
           >
-            <div className="modal-box  text-white px-9 rounded-lg w-[90%]">
+            <div className="modal-box backdrop-blur-md bg-black/40 text-white dark:text-white px-9 rounded-lg w-[90%]">
               {" "}
               <div className="modal-action">
                 <form method="dialog">

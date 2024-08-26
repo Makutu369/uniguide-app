@@ -25,10 +25,11 @@ export default {
       },
     },
   },
+
   plugins: [daisyui, nextui()],
-  darkMode: "class",
+  darkMode: "media",
 
   daisyui: {
-    themes: ["business"],
+    themes: ["business", "light"],
   },
 };

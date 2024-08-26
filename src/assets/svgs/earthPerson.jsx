@@ -5,6 +5,7 @@ const EarthSvg = (props) => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
+    className="hidden md:block"
   >
     <g id="10117870_4354885 2">
       <g id="Background_Simple">
