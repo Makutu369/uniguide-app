@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import HostelsList from "./components/listHostels";
 import User from "../../components/User";
 import Animate from "./animation/location";
+import { useSearchLocation } from "./store/search";
 const Acommodation = () => {
   const location = useLocation();
   const queryparam = new URLSearchParams(location.search);
@@ -13,7 +14,7 @@ const Acommodation = () => {
   const [data, setData] = useState([]);
   const [isloading, setIsloading] = useState(false);
   const body = { query: `hostels and hotels in ${value}` };
-  const [searchTerm, setSearchTerm] = useState("");
+  const { searchLocation, setSearchLocation } = useSearchLocation();
   useEffect(() => {
     // fetch data with value
     const fetchRequest = async () => {
@@ -42,32 +43,29 @@ const Acommodation = () => {
     };
     fetchRequest();
   }, []);
-
-  const handleChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
   data.shift();
-  const searched = data.filter((datas) =>
-    datas.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
+  const searched = data.filter((item, index) => {
+    return String(item.name).toLowerCase().includes(searchLocation);
+  });
   const randData = [1, 2, 4, 5, 6, 3, 34, 3, 53, 2, 32, 23232];
   return (
-    <div className="h-screen w-full font-boldm  relative ">
+    <div className="h-screen w-full font-boldm dark:bg-mainbackground relative ">
       <Navbar route={"/dashboard"} tour={"hidden"}>
         <User />
       </Navbar>
       {/* <Map value={""} /> */}{" "}
-      <div className="lg:px-28 text-black dark:text-white md:px-14 px-3 flex bg-white dark:bg-graySecondary flex-col gap-y-14 pt-5 ">
+      <div className="lg:px-28 text-black dark:text-white dark:bg-mainbackground md:px-14 px-3 flex bg-white dark:bg-graySecondary flex-col gap-y-14 pt-5 ">
         {" "}
         <div className="w-full flex justify-between items-center">
           <div className="w-[70%]">
             <span className="font-montserrat font-semibold ">{value}</span>
             <input
               type="text "
-              className="md:w-full bg-gray-200 mt-4 dark:bg-graySecondary border-primary sticky top-3 z-30 h-14 dark:text-white text-black self-center px-7 input dark:border-white/20 bg-graySecondary/50 o backdrop-blur-md rounded-full block grow "
-              onChange={handleChange}
-              value={searchTerm}
+              className="md:w-full bg-gray-100 mt-4 dark:bg-graySecondary border-primary sticky top-3 z-30 h-14 dark:text-white text-black self-center px-7 input dark:border-white/20 bg-graySecondary/50 o backdrop-blur-md rounded-full block grow "
+              onChange={(e) => {
+                setSearchLocation(e.target.value);
+              }}
+              value={searchLocation}
               placeholder="search acommodation"
             />{" "}
           </div>

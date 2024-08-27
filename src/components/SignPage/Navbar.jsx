@@ -17,10 +17,7 @@ const Navbar = ({ children, route, tour }) => {
       <div className="flex py-2 {} justify-center items-center gap-x-5 ">
         <Link
           to={"/tour"}
-          className={
-            "cursor-pointer border-r border-white/10 pr-5 text-black dark:text-slate-400 sm:inline-flex hidden hover:text-secondary transition-colors " +
-            tour
-          }
+          className={`cursor-pointer border-r border-white/10 pr-5 text-black dark:text-slate-400  hover:text-secondary transition-colors ${tour}`}
         >
           Tour
         </Link>

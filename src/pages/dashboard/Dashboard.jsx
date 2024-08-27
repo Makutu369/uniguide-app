@@ -11,6 +11,14 @@ import { useBar } from "./store/barData";
 
 const Dashboard = () => {
   const bars = useBar((state) => state.bar);
+  const circle = useBar((state) => state.circle);
+  console.log(circle.total);
+  const percentFail = (circle.worst / circle.total) * 100;
+  const updated = [
+    { name: "passed", value: 100 - percentFail },
+    { name: "failed", value: percentFail },
+  ];
+
   const { getDetails, Details } = useData();
   //nav links
   const links = [
@@ -61,7 +69,7 @@ const Dashboard = () => {
         </div>
         <div className="w-full flex flex-col lg:flex-row h-[50%] lg:gap-x-5 lg:justify-between px-5">
           <div className="w-[90%] lg:w-[30%]">
-            <Pies />
+            <Pies pie={updated} />
           </div>
           <div className="w-[90%] ">
             <Bars bars={bars} />

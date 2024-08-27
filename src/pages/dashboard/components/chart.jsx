@@ -2,8 +2,8 @@ import { PureComponent } from "react";
 import { PieChart, Cell, Pie, Sector, ResponsiveContainer } from "recharts";
 
 const data = [
-  { name: "Group A", value: 60 },
-  { name: "Group D", value: 40 },
+  { name: "Total", value: 60 },
+  { name: "Best", value: 40 },
 ];
 //colors for segmenatations
 const colors = ["#8884d8", "#82ca9d"];
@@ -95,13 +95,15 @@ export default class Pies extends PureComponent {
   };
 
   render() {
+    const pie = this.props.pie;
+    console.log(pie);
     return (
       <ResponsiveContainer width="100%" height="100%">
         <PieChart width={400} height={400}>
           <Pie
             activeIndex={this.state.activeIndex}
             activeShape={renderActiveShape}
-            data={data}
+            data={pie}
             cx="50%"
             cy="50%"
             innerRadius={60}
