@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <>
-      <div className=" font-boldm antialiased text-white w-full h-screen overflow-hidden flex-col">
+      <div className=" font-boldm antialiased text-black bg-white dark:bg-mainbackground dark:text-white w-full h-screen overflow-hidden flex-col">
         <Navbar route={"/"}>
           {" "}
           <Link
@@ -26,7 +26,7 @@ const Home = () => {
             <span className="font-montserrat mb-3  font-semibold ">
               Lets navigate your university journey together
             </span>
-            <span className="text-lg font-light mb-9 text-white/65">
+            <span className="text-lg font-light mb-9 text-black/65 dark:text-white/65">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. In iste,
               nam voluptates perspiciatis quae placeat est eligendi a quibusdam,
               non ipsum ex voluptate voluptatum commodi quidem asperiores soluta
