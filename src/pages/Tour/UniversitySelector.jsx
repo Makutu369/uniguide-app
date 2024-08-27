@@ -7,7 +7,7 @@ const UniversitySelector = ({ universities, onSelect }) => {
         <button
           key={index}
           onClick={() => onSelect(university)}
-          className="btn rounded-lg bg-primary/50"
+          className="btn border-black/10 text-black dark:text-white rounded-full dark:border-white/20 bg-primary/50"
         >
           {university.name}
         </button>

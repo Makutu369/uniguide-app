@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <NextUIProvider>
-    <Theme accentColor="lime" appearance="dark">
+    <Theme accentColor="indigo" appearance="dark">
       <RouterProvider router={router} />
     </Theme>
   </NextUIProvider>

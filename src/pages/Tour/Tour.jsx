@@ -51,7 +51,7 @@ const TourPage = () => {
       autoplay: true,
     };
     return (
-      <Slider {...settings} className="text-7xl text-black mx-auto px-9 mb-9">
+      <Slider {...settings} className="text-7xl text-black mx-auto px-0 mb-9">
         {images.map((image, index) => (
           <div
             key={index}
@@ -69,24 +69,26 @@ const TourPage = () => {
   };
 
   return (
-    <div className="w-full overflow-y-auto h-screen font-boldm text-black  bg-mainbackground px-9">
-      <div className="text-3xl text-white flex flex-col mx-auto border-b border-white/15 mb-9">
+    <div className="w-full text-black dark:text-white overflow-y-auto h-screen font-boldm  bg-white  dark:bg-mainbackground px-9">
+      <div className="text-3xl  flex flex-col mx-auto border-b border-white/15 mb-9">
         <span className="mx-auto">A Tour of Schools in Ghana</span>
         <span className="mx-auto">
           Below are some videos of schools in Ghana
         </span>
       </div>
-      <UniversitySelector
-        universities={universityList}
-        onSelect={handleUniversitySelect}
-      />
+
       <SimpleSlider images={selectedUniversity.images} />
-      <div className="mx-auto w-32 border border-black rounded-lg">
+      <div className="flex justify-between w-full text-black dark:text-white  rounded-lg">
+        {" "}
+        <UniversitySelector
+          universities={universityList}
+          onSelect={handleUniversitySelect}
+        />
         <a
           href={selectedUniversity.videoUrl}
-          className="btn w-full bg-primary/15 rounded-lg"
+          className="btn bg-primary/15 border-black/10 rounded-full text-black dark:text-white dark:border-white/20"
         >
-          hello
+          Tour Video
         </a>
       </div>
     </div>
