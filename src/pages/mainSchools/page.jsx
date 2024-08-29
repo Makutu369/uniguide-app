@@ -15,7 +15,7 @@ const Findschools = () => {
 
   return (
     <div className="dark:text-white/80 text-black/80  font-boldm antialiased dark:bg-mainbackground bg-white flex flex-col  w-full">
-      <div className="h-16 w-full border-b dark:border-white/15 border-black/15 flex px-5 items-center justify-between gap-x-11">
+      <div className="h-16 w-full border-b dark:border-white/15 dark:bg-graySecondary border-black/15 flex px-5 items-center justify-between gap-x-11">
         <Link to={`/dashboard`} className="flex gap-x-3 no-underline w-[30%]">
           <div className="w-8 h-8 flex items-center justify-normal">
             <img src={logo} alt="" />
@@ -30,7 +30,7 @@ const Findschools = () => {
             type="text"
             value={searchTerm}
             placeholder="search universities"
-            className="input h-11 bg-white dark:bg-graySecondary  border-primary/40 border-2 rounded-full w-full"
+            className="input lg:h-[48px] h-11 bg-white dark:bg-graySecondary  border-primary/40 border-2 rounded-full w-full"
           />
         </div>
         <div className="hidden md:block">
@@ -39,7 +39,7 @@ const Findschools = () => {
       </div>
       <div className=" flex  ">
         <div className="w-[30%] max-w-[30%] hidden  sm:block flex-col ">
-          <div className="w-full dark:bg-graySecondary bg-primary/50 border-r border-b px-5 dark:border-white/15  py-2 flex items-center min-h-14  h-14 ">
+          <div className="w-full   border-r border-b px-5 dark:border-white/15  py-2 flex items-center min-h-14  h-14 ">
             <span className="mx-auto text-lg font-semibold">University</span>
           </div>
           <div className="flex-auto border-r border-black/15  dark:border-white/15">

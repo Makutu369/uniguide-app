@@ -51,7 +51,7 @@ const UniList = () => {
                   setArchive(university);
                 }}
               >
-                adding to tracking
+                track
               </DropdownMenu.Item>
             </DropdownMenu.Content>
           </DropdownMenu.Root>
