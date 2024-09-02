@@ -16,6 +16,7 @@ import Findschools from "./pages/mainSchools/page";
 import "@radix-ui/themes/styles.css";
 import FAQPage from "./pages/Faq/faqPage";
 import { createBrowserRouter, Link } from "react-router-dom";
+import Grade from "./pages/grading/grade";
 
 const router = createBrowserRouter([
   {
@@ -66,6 +67,7 @@ const router = createBrowserRouter([
     path: "/acommodation",
     element: <Acommodation />,
   },
+  { path: "/user/grade", element: <Grade /> },
   {
     path: "/tour",
     element: <Tour />,

@@ -4,7 +4,7 @@ import { coursesData } from "./lib/trackData";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/SignPage/Navbar";
-import { Spinner } from "@nextui-org/react";
+import { Input, Spinner } from "@nextui-org/react";
 const Details = () => {
   const { handleSubmit, register } = useForm();
   const navigate = useNavigate();
@@ -42,7 +42,7 @@ const Details = () => {
         );
         if (response.ok) {
           setIsloading(false);
-          navigate("/dashboard");
+          navigate(`/user/grade?q=${data.courses.join("++")}`);
         }
       } catch (error) {
         console.log(error);
@@ -142,19 +142,6 @@ const Details = () => {
                 </div>
               ))}
             </div>
-            <label
-              htmlFor=""
-              className="input mb-5 input-bordered rounded-full flex items-center gap-2 "
-            >
-              grade
-              <input
-                type="text"
-                name="school"
-                className="grow"
-                placeholder="enter your grade"
-                {...register("grade")}
-              />
-            </label>
             <button
               type="submit"
               className="btn w-32 flex gap-x-2 rounded-full text-base text-black self-center bg-white/60 hover:bg-white/45 transition-colors"
