@@ -1,7 +1,5 @@
 const Hero = (props) => (
   <svg
-    width={729}
-    height={774}
     viewBox="0 0 729 774"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
